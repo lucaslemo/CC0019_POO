@@ -1,0 +1,32 @@
+package br.edu.ufca.basicas;
+
+public class Celeiro {
+	private int qtdAnimais;
+	private double lucro;
+	private int racao;
+	
+	public Celeiro(int qtdAnimais) {
+		this.setAnimais(qtdAnimais);
+	}
+
+	public int getAnimais() {
+		return this.qtdAnimais;
+	}
+
+	public void setAnimais(int qtdAnimais) {
+		this.qtdAnimais = qtdAnimais;
+	}
+
+	public double getLucro() {
+		return this.lucro;
+	}
+
+	public int consultarRacao() {
+		return this.racao;
+	}
+
+	public void comprarRacao(int racao) {
+		this.racao = racao;
+	}
+
+}

@@ -3,6 +3,6 @@ import br.edu.ufca.basicas.Celeiro;
 public class Teste {
 	public static void main(String[] args) {
 		Celeiro novo = new Celeiro();
-		novo.setAnimais(19);
+		novo.comprarRacao(10);
 	}
 }
