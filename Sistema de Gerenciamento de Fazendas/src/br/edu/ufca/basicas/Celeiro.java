@@ -1,49 +1,37 @@
 package br.edu.ufca.basicas;
 
 public class Celeiro {
+	private int Id;
 	private int qtdAnimais;
-	private double lucro;
-	private int racao;
-
+	private int qtdRacao;
+	
 	public Celeiro() {
-		this.qtdAnimais = 0;
-		this.lucro = 0;
-		this.racao = 0;
+		this.setId(Id);
+		this.setQtdAnimais(0);
+		this.setRacao(0);
 	}
 
-	public boolean alimentarAnimais(int porcao) {
-		int qtd = this.consultarAnimais() * porcao;
-		if (qtd <= this.consultarRacao()) {
-			this.racao -= this.consultarAnimais() * qtd;
-			return true;
-		}
-		return false;
+	public int getId() {
+		return Id;
 	}
 
-	public boolean comprarRacao(int racao) {
-		if (racao >= 0) {
-			this.racao += racao;
-			return true;
-		}
-		return false;
+	public void setId(int id) {
+		Id = id;
 	}
 
-	public int consultarRacao() {
-		return this.racao;
-	}
-
-	public int consultarAnimais() {
+	public int getQtdAnimais() {
 		return this.qtdAnimais;
 	}
 
-	public void comprarAnimais(int novosAnimais) {
-		if(novosAnimais >= 0) {
-			this.qtdAnimais += novosAnimais;
-		}
+	public void setQtdAnimais(int qtdAnimais) {
+		this.qtdAnimais = qtdAnimais;
 	}
 
-	public double getLucro() {
-		return this.lucro;
+	public int getRacao() {
+		return this.qtdRacao;
 	}
 
+	public void setRacao(int racao) {
+		this.qtdRacao = racao;
+	}
 }

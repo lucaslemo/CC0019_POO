@@ -1,0 +1,9 @@
+package br.edu.ufca.basicas;
+
+public class Fazendeiro {
+	private Celeiro celeiro;
+	
+	public Fazendeiro() {
+		this.celeiro = new Celeiro();
+	}
+}

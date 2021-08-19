@@ -1,0 +1,17 @@
+package br.edu.ufca.basicas;
+
+public class Fazendeiro {
+	private Celeiro celeiro;
+	
+	public Fazendeiro() {
+		this.setCeleiro(new Celeiro());
+	}
+
+	public Celeiro getCeleiro() {
+		return celeiro;
+	}
+
+	public void setCeleiro(Celeiro celeiro) {
+		this.celeiro = celeiro;
+	}
+}

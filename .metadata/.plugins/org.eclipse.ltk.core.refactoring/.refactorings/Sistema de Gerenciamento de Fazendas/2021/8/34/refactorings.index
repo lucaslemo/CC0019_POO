@@ -2,3 +2,15 @@
 1629154815131	Encapsulate field 'tipoAnimal'
 1629156938665	Encapsulate field 'lucro'
 1629159891570	Encapsulate field 'racao'
+1629407588257	Encapsulate field 'Id'
+1629408028047	Encapsulate field 'qtdAnimais'
+1629408242828	Encapsulate field 'tipoAnimal'
+1629408248736	Encapsulate field 'racao'
+1629409114827	Delete element
+1629409121304	Delete element
+1629413902015	Encapsulate field 'custos'
+1629413907526	Encapsulate field 'lucroPrevisto'
+1629414531757	Encapsulate field 'celeiro'
+1629414860115	Delete element
+1629414864051	Delete element
+1629414969560	Encapsulate field 'Id'
