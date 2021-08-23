@@ -5,10 +5,10 @@ public class Celeiro {
 	private int qtdAnimais;
 	private int qtdRacao;
 	
-	public Celeiro() {
-		this.setId(Id);
-		this.setQtdAnimais(0);
-		this.setRacao(0);
+	public Celeiro(int Id) {
+		this.Id = Id;
+		this.qtdAnimais = 0;
+		this.qtdRacao = 0;
 	}
 
 	public int getId() {
