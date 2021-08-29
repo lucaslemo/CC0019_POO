@@ -4,6 +4,7 @@ import br.edu.ufca.repositorio.RepositorioFuncionarios;
 
 public class Fazenda {
 	private int Id;
+	private String nome;
 	private int Custos_Previstos;
 	private int Lucros_Previstos;
 	private Celeiro Celeiro;
@@ -55,5 +56,13 @@ public class Fazenda {
 
 	public void setFuncionarios(RepositorioFuncionarios funcionarios) {
 		Funcionarios = funcionarios;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 }
