@@ -4,18 +4,17 @@ import br.edu.ufca.repositorio.RepositorioFuncionarios;
 
 public class Fazenda {
 	private int Id;
-	private String nome;
 	private int Custos_Previstos;
 	private int Lucros_Previstos;
 	private Celeiro Celeiro;
 	private RepositorioFuncionarios Funcionarios;
 	
-	public Fazenda(int Id, int tamCeleiro, int qtdFuncionarios) {
+	public Fazenda(String nomeDono, int cpf, int Id) {
 		this.Id = Id;
 		this.Custos_Previstos = 0;
 		this.Lucros_Previstos = 0;
-		this.Celeiro = new Celeiro(tamCeleiro);
-		this.Funcionarios = new RepositorioFuncionarios(qtdFuncionarios);
+		this.Celeiro = new Celeiro();
+		this.Funcionarios = new RepositorioFuncionarios(0);
 	}
 	
 	public int getId() {
@@ -54,15 +53,14 @@ public class Fazenda {
 		return Funcionarios;
 	}
 
-	public void setFuncionarios(RepositorioFuncionarios funcionarios) {
-		Funcionarios = funcionarios;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
+	@Override
+	public boolean equals(Object o) {
+		boolean result = false;
+		if(o instanceof Fazenda) {
+			if(this.Id == ((Fazenda) o).Id) {
+				result = true;
+			}
+		}
+		return result;
 	}
 }

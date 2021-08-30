@@ -8,10 +8,17 @@ public class Celeiro {
 	private double qtdRacao;
 	private RepositorioAnimais Repositorio;
 	
-	public Celeiro(int tam) {
+	public Celeiro() {
 		this.qtdAnimais = 0;
 		this.qtdRacao = 0;
-		this.Repositorio = new RepositorioAnimais(tam);
+		this.Repositorio = new RepositorioAnimais();
+	}
+
+	public void adicionaAnimal(String tipo, int qtd, double lucroMensal, int racaoMensal) {
+		for (int i = 0; i < qtd; i++) {
+			Animal novo = new Animal(tipo, lucroMensal, racaoMensal);
+			this.Repositorio.adicionarAnimal(novo);
+		}
 	}
 
 	public int getAnimais() {
