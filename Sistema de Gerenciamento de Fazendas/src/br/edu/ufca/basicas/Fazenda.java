@@ -9,7 +9,7 @@ public class Fazenda {
 	private Celeiro Celeiro;
 	private RepositorioFuncionarios Funcionarios;
 	
-	public Fazenda(String nomeDono, int cpf, int Id) {
+	public Fazenda(int Id) {
 		this.Id = Id;
 		this.Custos_Previstos = 0;
 		this.Lucros_Previstos = 0;

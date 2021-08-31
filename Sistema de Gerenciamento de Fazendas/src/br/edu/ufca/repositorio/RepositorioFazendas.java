@@ -1,7 +1,6 @@
 package br.edu.ufca.repositorio;
 
 import br.edu.ufca.basicas.Fazenda;
-import br.edu.ufca.basicas.Fazendeiro;
 
 public class RepositorioFazendas {
 
@@ -36,15 +35,14 @@ public class RepositorioFazendas {
 		return null;
 	}
 
-	public void removeFazenda(Fazendeiro obj) {
-		for(int i = 0; i < 5; i++) {
-			if (this.fazendas[i] == null) {
+	public void removeFazenda(int id) {
+		for (int i = 0; i < 5; i++) {
+			if(this.fazendas[i] == null) {
 				continue;
 			}
-			else if(this.fazendas[i].equals(obj)) {
+			else if(this.fazendas[i].getId() ==  id) {
 				this.fazendas[i] = null;
 				this.qtdFazendas = this.getQtdFazendas() - 1;
-				break;
 			}
 		}
 	}
