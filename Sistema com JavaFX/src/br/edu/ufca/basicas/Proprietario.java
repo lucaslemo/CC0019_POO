@@ -2,7 +2,7 @@ package br.edu.ufca.basicas;
 
 import br.edu.ufca.repositorio.RepositorioFazendas;
 
-public class Proprietario{
+public class Proprietario {
 
 	private String nome;
 	private int CPF;

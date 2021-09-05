@@ -1,32 +1,38 @@
 package br.edu.ufca.basicas;
 
 public class Animal {
-	
-	private String Nome;
-	private double Lucro_Mensal;
-	private double Raçao_Mensal;
-	
+
+	private String nome;
+	private double precoVenda;
+	private double racaoMensal;
+
+	public Animal(String tipo, double precoVenda, double racaoMensal) {
+		this.nome = tipo;
+		this.precoVenda = precoVenda;
+		this.racaoMensal = racaoMensal;
+	}
+
 	public String getNome() {
-		return Nome;
+		return nome;
 	}
-	
+
 	public void setNome(String nome) {
-		Nome = nome;
+		this.nome = nome;
+	}
+
+	public double getPrecoVenda() {
+		return this.precoVenda;
 	}
 	
-	public double getLucro_Mensal() {
-		return Lucro_Mensal;
+	public void setPrecoVenda(double precoVenda) {
+		this.precoVenda = precoVenda;
 	}
-	
-	public void setLucro_Mensal(double lucroMensal) {
-		Lucro_Mensal = lucroMensal;
+
+	public double getRacaoMensal() {
+		return this.racaoMensal;
 	}
-	
-	public double getRaçao_Mensal() {
-		return Raçao_Mensal;
-	}
-	
-	public void setRaçao_Mensal(double raçaoMensal) {
-		Raçao_Mensal = raçaoMensal;
+
+	public void setRaçaoMensal(double racaoMensal) {
+		this.racaoMensal = racaoMensal;
 	}
 }

@@ -8,11 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Sistema extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/fxml/tela.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/fxml/telaSistema.fxml"));
 		Scene scene = new Scene(root, 400, 500);
 		primaryStage.setMaximized(false);
 		primaryStage.setResizable(false);
