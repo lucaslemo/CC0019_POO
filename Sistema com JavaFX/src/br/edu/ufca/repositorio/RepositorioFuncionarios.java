@@ -1,9 +1,15 @@
 package br.edu.ufca.repositorio;
 
+import java.io.Serializable;
+
 import br.edu.ufca.basicas.Fazendeiro;
 
-public class RepositorioFuncionarios {
+public class RepositorioFuncionarios implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Fazendeiro [] funcionarios;
 	private int qtdFuncionario;
 	

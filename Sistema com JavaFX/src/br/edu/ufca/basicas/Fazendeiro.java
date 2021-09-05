@@ -1,7 +1,13 @@
 package br.edu.ufca.basicas;
 
-public class Fazendeiro {
+import java.io.Serializable;
+
+public class Fazendeiro implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private int cpf;
 	

@@ -1,8 +1,13 @@
 package br.edu.ufca.basicas;
 
+import java.io.Serializable;
 import br.edu.ufca.repositorio.RepositorioFuncionarios;
 
-public class Fazenda {
+public class Fazenda implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int Id;
 	private int Lucros_Previstos;
 	private Celeiro Celeiro;

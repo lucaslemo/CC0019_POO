@@ -1,9 +1,14 @@
 package br.edu.ufca.repositorio;
 
+import java.io.Serializable;
 import br.edu.ufca.basicas.Fazenda;
 
-public class RepositorioFazendas {
+public class RepositorioFazendas implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Fazenda [] fazendas;
 	private int qtdFazendas;
 	

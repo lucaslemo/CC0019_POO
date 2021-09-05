@@ -1,9 +1,14 @@
 package br.edu.ufca.repositorio;
 
+import java.io.Serializable;
 import br.edu.ufca.basicas.Animal;
 
-public class RepositorioAnimais {
+public class RepositorioAnimais implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Animal[] Animais;
 	private int qtdAnimal;
 	

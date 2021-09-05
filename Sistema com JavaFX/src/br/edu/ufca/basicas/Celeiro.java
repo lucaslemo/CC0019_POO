@@ -1,9 +1,14 @@
 package br.edu.ufca.basicas;
 
+import java.io.Serializable;
 import br.edu.ufca.repositorio.RepositorioAnimais;
 
-public class Celeiro {
+public class Celeiro implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int qtdRacao;
 	private RepositorioAnimais Repositorio;
 	

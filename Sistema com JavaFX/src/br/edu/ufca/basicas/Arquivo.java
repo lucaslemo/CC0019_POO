@@ -1,35 +1,40 @@
 package br.edu.ufca.basicas;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import br.edu.ufca.repositorio.RepositorioCliente;
 
 public class Arquivo {
 
-	public static void leitor(String path) throws IOException {
-		BufferedReader buffRead = new BufferedReader(new FileReader(path));
-		String linha = "";
-		while (true) {
-			if (linha != null) {
-				System.out.println(linha);
-
-			} else
-				break;
-			linha = buffRead.readLine();
+	public static void gravarArquivo(RepositorioCliente clientes) {
+		try {
+			FileOutputStream arq = new FileOutputStream("/data/data.ser");
+			ObjectOutputStream obj = new ObjectOutputStream(arq);
+			obj.writeObject(clientes);
+			obj.flush();
+			obj.close();
+			
+		}catch(IOException erro){
+			erro.printStackTrace();
+			System.out.println("Erro na gravacao do arquivo!");
 		}
-		buffRead.close();
 	}
-
-	public static void escritor(String path) throws IOException {
-		BufferedWriter buffWrite = new BufferedWriter(new FileWriter(path));
-		String linha = "";
-		Scanner in = new Scanner(System.in);
-		System.out.println("Escreva algo: ");
-		linha = in.nextLine();
-		buffWrite.append(linha + "\n");
-		buffWrite.close();
+	
+	public static RepositorioCliente lerArquivo() {
+		RepositorioCliente clientes = null;
+		try {
+			FileInputStream arq = new FileInputStream("/data/data.ser");
+			ObjectInputStream obj = new ObjectInputStream(arq);
+			clientes = (RepositorioCliente) obj.readObject();
+			obj.close();
+			return clientes;
+		}catch(IOException | ClassNotFoundException erro) {
+			erro.printStackTrace();
+			System.out.println("Erro na abertura do arquivo!");
+			return null;
+		}
 	}
 }

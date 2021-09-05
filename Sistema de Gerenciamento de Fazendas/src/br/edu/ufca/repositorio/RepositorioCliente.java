@@ -1,15 +1,9 @@
 package br.edu.ufca.repositorio;
 
-import java.io.Serializable;
-
 import br.edu.ufca.basicas.Proprietario;
 
-public class RepositorioCliente implements Serializable{
+public class RepositorioCliente{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	private Proprietario [] clientes;
 	
 	public RepositorioCliente() {
@@ -26,6 +20,19 @@ public class RepositorioCliente implements Serializable{
 			return 1;
 		}
 		return 0;
+	}
+
+	public Proprietario buscarCliente(int cpf) {
+		Proprietario aux = null;
+		for(int i = 0; i < 10; i++) {
+			aux = this.getClientes()[i];
+			if(aux != null) {
+				if(aux.getCPF() == cpf) {
+					return aux;
+				}
+			}
+		}
+		return null;
 	}
 
 	public Proprietario [] getClientes() {

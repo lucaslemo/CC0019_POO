@@ -1,7 +1,13 @@
 package br.edu.ufca.basicas;
 
-public class Animal {
+import java.io.Serializable;
 
+public class Animal implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private double precoVenda;
 	private double racaoMensal;
