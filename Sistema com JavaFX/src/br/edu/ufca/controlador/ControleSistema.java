@@ -37,9 +37,15 @@ public class ControleSistema implements Initializable{
 	@FXML
 	public void func01() {
 		String novoNome = nome.getText();
-		int novoCpf = Integer.valueOf(cpf.getText());
-		Proprietario novo = new Proprietario(novoNome, novoCpf);
-		System.out.println(novo.getNome());
+		//int novoCpf = Integer.valueOf(cpf.getText());
+		Proprietario novo = new Proprietario(novoNome, 1);
+		RepositorioCliente Sistema;
+		if(Arquivo.lerArquivo() != null) {
+			Sistema = Arquivo.lerArquivo();
+			Sistema.adicionarCliente(novo);
+			Arquivo.gravarArquivo(Sistema);
+			System.out.println(novo.getNome());
+		}
 	}
 	
 	@FXML

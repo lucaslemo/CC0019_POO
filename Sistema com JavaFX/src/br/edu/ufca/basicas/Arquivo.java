@@ -11,7 +11,7 @@ public class Arquivo {
 
 	public static void gravarArquivo(RepositorioCliente clientes) {
 		try {
-			FileOutputStream arq = new FileOutputStream("/data/data.ser");
+			FileOutputStream arq = new FileOutputStream("resources/data/data.ser");
 			ObjectOutputStream obj = new ObjectOutputStream(arq);
 			obj.writeObject(clientes);
 			obj.flush();
@@ -26,12 +26,16 @@ public class Arquivo {
 	public static RepositorioCliente lerArquivo() {
 		RepositorioCliente clientes = null;
 		try {
-			FileInputStream arq = new FileInputStream("/data/data.ser");
+			FileInputStream arq = new FileInputStream("resources/data/data.ser");
 			ObjectInputStream obj = new ObjectInputStream(arq);
 			clientes = (RepositorioCliente) obj.readObject();
 			obj.close();
 			return clientes;
-		}catch(IOException | ClassNotFoundException erro) {
+		}catch(ClassNotFoundException erro) {
+			System.out.println("Nenhum arquivo encontrado. Criando arquivo data...");
+			Arquivo.gravarArquivo(clientes);
+			return clientes;
+		}catch(IOException erro) {
 			erro.printStackTrace();
 			System.out.println("Erro na abertura do arquivo!");
 			return null;
