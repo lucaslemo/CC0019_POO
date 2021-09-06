@@ -1,17 +1,22 @@
 package br.edu.ufca.controlador;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import br.edu.ufca.basicas.Arquivo;
+import br.edu.ufca.basicas.ArquivoFuncionario;
 import br.edu.ufca.basicas.Proprietario;
 import br.edu.ufca.basicas.Ultilitarios;
 import br.edu.ufca.repositorio.RepositorioCliente;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class ControleSistemaFuncionario implements Initializable{
@@ -46,15 +51,18 @@ public class ControleSistemaFuncionario implements Initializable{
 	Label valid = new Label();
 
 	@FXML
-	public void func01() {
+	public void func01() throws IOException {
 		if(!id.getText().equals("") && !senha.getText().equals("")) {
 			if(Ultilitarios.testaNumero(id.getText()) == 1) {
 				int novoId = Integer.parseInt(id.getText());
 				Proprietario aux = this.sistema.consultaClientePorSenha(senha.getText());
 				if(aux != null) {
 					if(aux.consultaFazenda(novoId) != null) {
-						func02();
-						
+						ArquivoFuncionario.gravarArquivo(aux.consultaFazenda(novoId).getFuncionario());
+						Stage s1 = (Stage) btn01.getScene().getWindow();
+						s1.close();
+						System.out.println("Login realizado com sucesso!");
+
 					}
 					else {
 						valid.setText("Não existe fazenda com esse ID!");

@@ -2,6 +2,9 @@ package br.edu.ufca.app;
 
 import java.io.IOException;
 
+import br.edu.ufca.basicas.Arquivo;
+import br.edu.ufca.basicas.Proprietario;
+import br.edu.ufca.repositorio.RepositorioCliente;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -22,6 +25,23 @@ public class Sistema extends Application {
 	}
 
 	public static void main(String[] args) {
+		RepositorioCliente n = new RepositorioCliente();
+		Proprietario x = new Proprietario("Luiz", "123444", "123456");
+		Proprietario y = new Proprietario("Alberto", "3345", "7777");
+		Proprietario z = new Proprietario("Tales", "4567", "8802");
+		n.adicionarCliente(x);
+		n.adicionarCliente(y);
+		n.adicionarCliente(z);
+		n.consultaCliente("123444").criarFazenda();
+		n.consultaCliente("3345").criarFazenda();
+		n.consultaCliente("4567").criarFazenda();
+		n.consultaCliente("123444").comprarAnimaisF(1, "Gado", 150 ,13.0, 17.0, 11);
+		n.consultaCliente("123444").comprarAnimaisF(1, "galinha", 234, 13.0, 17.0, 11);
+		n.consultaCliente("123444").comprarAnimaisF(1, "Galinha", 45,13.0, 17.0, 11);
+		n.consultaCliente("3345").comprarAnimaisF(1, "Gado", 13, 78.1,17.0, 11);
+		n.consultaCliente("4567").comprarAnimaisF(1, "Gado", 13, 13.5, 17.0, 11);
+		Arquivo.gravarArquivo(n);
+		
 		launch(args);		
 	}
 }

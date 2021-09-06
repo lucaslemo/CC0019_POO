@@ -2,8 +2,8 @@ package br.edu.ufca.controlador;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import br.edu.ufca.basicas.Arquivo;
+import br.edu.ufca.basicas.ArquivoFuncionario;
+import br.edu.ufca.basicas.Fazendeiro;
 import br.edu.ufca.repositorio.RepositorioCliente;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,15 +14,19 @@ import javafx.scene.control.TextField;
 public class ControleSistemaMenuFuncionario implements Initializable{
 
 	private RepositorioCliente sistema = null;
-	
-	public ControleSistemaMenuFuncionario(RepositorioCliente sistema) {
-		this.sistema = sistema;
-	}
-	
+	private Fazendeiro funcionario = null;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+		this.initialize();
 	}
+
+	@FXML
+    private void initialize() {
+		if(ArquivoFuncionario.lerArquivo() != null) {
+			this.funcionario = ArquivoFuncionario.lerArquivo();
+		}
+    }
 
 	@FXML
 	Button btn01 = new Button();
