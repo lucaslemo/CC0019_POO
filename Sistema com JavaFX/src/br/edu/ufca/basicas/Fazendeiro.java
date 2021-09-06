@@ -32,17 +32,19 @@ public class Fazendeiro implements Serializable{
 		this.getCeleiro().setRacao(this.consultarRacao() + qtdRacao);
 	}
 	
-	public void alimentarAnimais(String tipo, int qtdAnimais) {
+	public void alimentarAnimais() {
 		Animal aux = null;
-		int i = 0, j = 0;
-		while(i < 10000 || j < qtdAnimais) {
+		int i = 0, racaoNec = 0;
+		while(i < 10000) {
 			aux = this.getCeleiro().getRepositorio().getAnimais()[i];
 			if (aux != null) {
-				if(aux.getNome().equals(tipo)) {
-					this.getCeleiro().setRacao(this.consultarRacao() - aux.getQtdRacaoDiaria());
-				}
+				racaoNec = aux.getQtdRacaoDiaria();
 			}
 		}
+		if(this.getCeleiro().getRacao() >= racaoNec) {
+			this.getCeleiro().setRacao(this.getCeleiro().getRacao() + racaoNec);
+		}
+		
 	}
 
 	public Celeiro getCeleiro() {
@@ -51,6 +53,14 @@ public class Fazendeiro implements Serializable{
 
 	public void setCeleiro(Celeiro celeiro) {
 		this.celeiro = celeiro;
+	}
+
+	public String getSenhaProprietario() {
+		return senhaProprietario;
+	}
+
+	public void setSenhaProprietario(String senhaProprietario) {
+		this.senhaProprietario = senhaProprietario;
 	}
 
 	

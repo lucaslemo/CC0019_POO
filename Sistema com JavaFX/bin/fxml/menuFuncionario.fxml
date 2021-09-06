@@ -24,7 +24,7 @@
       <Button fx:id="btn03" layoutX="201.0" layoutY="334.0" mnemonicParsing="false" onAction="#func03" prefHeight="25.0" prefWidth="112.0" text="Adquirir Ração" />
       <TextField fx:id="qtdRacao" layoutX="88.0" layoutY="334.0" prefHeight="25.0" prefWidth="112.0" promptText="Quantidade" />
       <Button fx:id="btn04" layoutX="144.0" layoutY="373.0" mnemonicParsing="false" onAction="#func04" prefHeight="25.0" text="Alimentar Animais" />
-      <Label fx:id="qtdAnimais" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="213.0" prefHeight="25.0" prefWidth="300.0" textAlignment="CENTER" />
+      <Label fx:id="qtdAnimais" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="203.0" prefHeight="48.0" prefWidth="300.0" textAlignment="CENTER" wrapText="true" />
       <Button fx:id="btn05" layoutX="155.0" layoutY="461.0" mnemonicParsing="false" onAction="#func05" prefHeight="25.0" prefWidth="90.0" text="Sair e Salvar" />
       <Button fx:id="bnt06" layoutX="155.0" layoutY="258.0" mnemonicParsing="false" onAction="#func06" prefHeight="25.0" text="Listar Animais" />
       <Label fx:id="qtdRacaoCons" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="416.0" prefHeight="25.0" prefWidth="300.0" textAlignment="CENTER" />

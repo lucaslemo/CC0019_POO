@@ -61,6 +61,7 @@ public class RepositorioFazendas implements Serializable{
 				continue;
 			}
 			else if(this.fazendas[i].getId() == atual.getId()){
+				System.out.println(this.fazendas[i].getId());
 				this.fazendas[i] = atual;
 			}
 		}

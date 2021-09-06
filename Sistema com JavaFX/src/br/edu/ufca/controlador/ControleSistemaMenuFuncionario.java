@@ -3,7 +3,6 @@ package br.edu.ufca.controlador;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import br.edu.ufca.basicas.Arquivo;
 import br.edu.ufca.basicas.ArquivoFazenda;
 import br.edu.ufca.basicas.Fazenda;
@@ -105,17 +104,20 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 
 	@FXML
 	public void func04() {
-		
+		this.funcionario.getFuncionario().alimentarAnimais();
 	}
 
 	@FXML
 	public void func05() throws IOException {
-		RepositorioCliente saveRef = Arquivo.lerArquivo();
+		this.sistema = Arquivo.lerArquivo();
+		String senha = this.funcionario.getFuncionario().getSenhaProprietario();
+		this.sistema.consultaClientePorSenha(senha).getRepositorioFazendas().atualizaFazenda(this.funcionario);
+		Arquivo.gravarArquivo(this.sistema);
 		Stage s1 = (Stage) btn05.getScene().getWindow();
 		s1.close();
 		System.out.println("Deslogando...");
 		Stage s2 = new Stage();
-	    Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/loginCliente.fxml"));
+	    Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/loginfuncionario.fxml"));
 	    s2.initModality(Modality.APPLICATION_MODAL);
 	    Scene scene = new Scene(root, 400, 450);
 	    s2.setMaximized(false);
