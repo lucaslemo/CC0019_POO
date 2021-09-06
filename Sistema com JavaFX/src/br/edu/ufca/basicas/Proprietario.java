@@ -11,12 +11,14 @@ public class Proprietario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String nome;
 	private String CPF;
-	private RepositorioFazendas fazendas;
 	private String senha;
+	private RepositorioFazendas fazendas;
+	
 
-	public Proprietario(String nome, String CPF) {
+	public Proprietario(String nome, String CPF, String senha) {
 		this.nome = nome;
 		this.CPF= CPF;
+		this.senha= senha;
 		this.fazendas = new RepositorioFazendas();
 	}
 
@@ -163,6 +165,10 @@ public class Proprietario implements Serializable{
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public Fazenda consultaFazenda(int id) {
+		return this.fazendas.consultaFazenda(id);
 	}
 
 	@Override

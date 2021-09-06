@@ -53,6 +53,9 @@ public class ControleSistema implements Initializable{
 	TextField cpf = new TextField();
 
 	@FXML
+	TextField senha = new TextField();
+
+	@FXML
 	Label valid = new Label();
 
 	@FXML
@@ -61,11 +64,12 @@ public class ControleSistema implements Initializable{
 	@FXML
 	public void func01() {
 		if(Ultilitarios.testaNumero(cpf.getText()) == 1) {
-			if (!nome.getText().equals("")) { 
+			if (!nome.getText().equals("")  && !senha.getText().equals("")) { 
 				String novoCpf = cpf.getText();
+				String novaSenha = senha.getText();
 				if(this.sistema.consultaCliente(novoCpf) == null) {
 					String novoNome = nome.getText();
-					Proprietario novo = new Proprietario(novoNome, novoCpf);
+					Proprietario novo = new Proprietario(novoNome, novoCpf, novaSenha);
 					this.sistema.adicionarCliente(novo);
 					Arquivo.gravarArquivo(sistema);
 					valid.setText("Cadastrado com Sucesso!");
@@ -78,8 +82,8 @@ public class ControleSistema implements Initializable{
 				}
 			}
 			else {
-				valid.setText("Nome Invalido!");
-				System.out.println("Nome Invalido!");
+				valid.setText("Preencher Campos Vazios!");
+				System.out.println("Preencher Campos Vazios!");
 			}
 		}
 		else {

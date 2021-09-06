@@ -8,12 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Sistema extends Application {
+public class SistemaFuncionario extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("/fxml/telaSistema.fxml"));
-		Scene scene = new Scene(root, 400, 550);
+		Parent root = FXMLLoader.load(getClass().getResource("/fxml/loginFuncionario.fxml"));
+		Scene scene = new Scene(root, 400, 450);
 		primaryStage.setMaximized(false);
 		primaryStage.setResizable(false);
 		primaryStage.setTitle("Sistema de Gerenciamento de Fazendas");
