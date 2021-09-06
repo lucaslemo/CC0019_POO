@@ -11,10 +11,10 @@ public class Fazenda implements Serializable{
 	private int Lucros_Previstos;
 	private Fazendeiro Funcionario;
 
-	public Fazenda(int Id) {
+	public Fazenda(int Id, String senha) {
 		this.Id = Id;
 		this.Lucros_Previstos = 0;
-		this.Funcionario = new Fazendeiro();
+		this.Funcionario = new Fazendeiro(senha);
 	}
 
 	public int getId() {

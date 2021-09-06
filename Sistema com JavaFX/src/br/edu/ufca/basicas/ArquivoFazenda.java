@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class ArquivoFuncionario {
+public class ArquivoFazenda {
 
-	public static void gravarArquivo(Fazendeiro usuario) {
+	public static void gravarArquivo(Fazenda usuario) {
 		try {
 			FileOutputStream arq = new FileOutputStream("resources/data/user_Fun_data.ser");
 			ObjectOutputStream obj = new ObjectOutputStream(arq);
@@ -23,11 +23,11 @@ public class ArquivoFuncionario {
 		}
 	}
 	
-	public static Fazendeiro lerArquivo() {
+	public static Fazenda lerArquivo() {
 		try {
 			FileInputStream arq = new FileInputStream("resources/data/user_Fun_data.ser");
 			ObjectInputStream obj = new ObjectInputStream(arq);
-			Fazendeiro usuario = (Fazendeiro) obj.readObject();
+			Fazenda usuario = (Fazenda) obj.readObject();
 			obj.close();
 			return usuario;
 		}catch(ClassNotFoundException erro) {

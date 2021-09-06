@@ -25,7 +25,7 @@ public class Proprietario implements Serializable{
 	public int criarFazenda() {
 		int id = this.fazendas.getQtdFazendas();
 		if (id < 5) {
-			Fazenda nova = new Fazenda(id + 1);
+			Fazenda nova = new Fazenda(0, this.getSenha());
 			this.fazendas.adicionarFazenda(nova);
 			return 1;
 		}

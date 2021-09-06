@@ -5,8 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import br.edu.ufca.basicas.Arquivo;
-import br.edu.ufca.basicas.ArquivoFuncionario;
-import br.edu.ufca.basicas.Fazendeiro;
+import br.edu.ufca.basicas.ArquivoFazenda;
+import br.edu.ufca.basicas.Fazenda;
 import br.edu.ufca.basicas.Ultilitarios;
 import br.edu.ufca.repositorio.RepositorioCliente;
 import javafx.fxml.FXML;
@@ -23,14 +23,7 @@ import javafx.stage.Stage;
 public class ControleSistemaMenuFuncionario implements Initializable{
 
 	private RepositorioCliente sistema = null;
-	private Fazendeiro funcionario = null;
-	private int id;
-	private String senha;
-
-	/*public ControleSistemaMenuFuncionario(int id, String senha) {
-		this.id = id;
-		this.senha = senha;
-	}*/
+	private Fazenda funcionario = null;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -39,8 +32,8 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 
 	@FXML
     private void initialize() {
-		if(ArquivoFuncionario.lerArquivo() != null) {
-			this.funcionario = ArquivoFuncionario.lerArquivo();
+		if(ArquivoFazenda.lerArquivo() != null) {
+			this.funcionario = ArquivoFazenda.lerArquivo();
 		}
     }
 
@@ -78,7 +71,7 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 	public void func01() {
 		if(!tipoAnimal.getText().equals("")) {
 			String tipo = tipoAnimal.getText().toUpperCase();
-			int qtd = this.funcionario.getCeleiro().getAnimais(tipo);
+			int qtd = this.funcionario.getFuncionario().getCeleiro().getAnimais(tipo);
 			tipo = tipo.substring(0,1).concat(tipo.substring(1, tipo.length()).toLowerCase());
 			qtdAnimais.setText("A Fazenda possui: " + qtd + " animais do tipo: " + tipo);
 		}
@@ -89,7 +82,7 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 
 	@FXML
 	public void func02() {
-		int qtd = this.funcionario.getCeleiro().getRacao();
+		int qtd = this.funcionario.getFuncionario().getCeleiro().getRacao();
 		qtdRacaoCons.setText("A fazenda possui: " + qtd + " porções de ração");
 	}
 
@@ -98,8 +91,8 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 		if(!qtdRacao.getText().equals("")) {
 			if(Ultilitarios.testaNumero(qtdRacao.getText()) == 1) {
 				int qtd = Integer.parseInt(qtdRacao.getText());
-				int racao = this.funcionario.getCeleiro().getRacao();
-				this.funcionario.getCeleiro().setRacao(racao + qtd);
+				int racao = this.funcionario.getFuncionario().getCeleiro().getRacao();
+				this.funcionario.getFuncionario().getCeleiro().setRacao(racao + qtd);
 			}
 			else {
 				qtdRacaoCons.setText("Entrada Inválida!");

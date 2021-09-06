@@ -23,6 +23,7 @@ public class RepositorioFazendas implements Serializable{
 			i++;
 		}
 		if(i < 5) {
+			nova.setId(i + 1);
 			this.fazendas[i] = nova;
 			this.qtdFazendas = this.getQtdFazendas() + 1;
 		}
@@ -52,6 +53,17 @@ public class RepositorioFazendas implements Serializable{
 			}
 		}
 		return 0;
+	}
+
+	public void atualizaFazenda(Fazenda atual) {
+		for (int i = 0; i < 5; i++) {
+			if(this.fazendas[i] == null) {
+				continue;
+			}
+			else if(this.fazendas[i].getId() == atual.getId()){
+				this.fazendas[i] = atual;
+			}
+		}
 	}
 
 	public Fazenda [] getFazendas() {

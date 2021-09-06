@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import br.edu.ufca.basicas.Arquivo;
-import br.edu.ufca.basicas.ArquivoFuncionario;
+import br.edu.ufca.basicas.ArquivoFazenda;
 import br.edu.ufca.basicas.Proprietario;
 import br.edu.ufca.basicas.Ultilitarios;
 import br.edu.ufca.repositorio.RepositorioCliente;
@@ -58,7 +58,7 @@ public class ControleSistemaFuncionario implements Initializable{
 				Proprietario aux = this.sistema.consultaClientePorSenha(senha.getText());
 				if(aux != null) {
 					if(aux.consultaFazenda(novoId) != null) {
-						ArquivoFuncionario.gravarArquivo(aux.consultaFazenda(novoId).getFuncionario());
+						ArquivoFazenda.gravarArquivo(aux.consultaFazenda(novoId));
 						Stage s1 = (Stage) btn01.getScene().getWindow();
 						s1.close();
 						System.out.println("Login realizado com sucesso!");

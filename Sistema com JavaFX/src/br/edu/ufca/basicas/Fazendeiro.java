@@ -8,10 +8,12 @@ public class Fazendeiro implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String senhaProprietario;
 	private Celeiro celeiro;
 
-	public Fazendeiro() {
+	public Fazendeiro(String senha) {
 		this.celeiro = new Celeiro();
+		this.senhaProprietario = senha;
 	}
 
 	public int consultarAnimais(String tipo) {
