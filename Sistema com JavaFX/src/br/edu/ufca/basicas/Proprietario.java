@@ -52,7 +52,7 @@ public class Proprietario implements Serializable{
 			for (int i = 0; i < 5; i++) {
 				aux = this.fazendas.getFazendas()[i];
 				if (aux != null) {
-					qtdAll += aux.getCeleiro().getRepositorio().getQtdAnimal();
+					qtdAll += aux.getFuncionario().getCeleiro().getRepositorio().getQtdAnimal();
 				}
 			}
 		}
@@ -60,24 +60,24 @@ public class Proprietario implements Serializable{
 			for (int i = 0; i < 5; i++) {
 				aux = this.fazendas.getFazendas()[i];
 				if (aux != null) {
-					qtdAll += aux.getCeleiro().getAnimais(tipo);
+					qtdAll += aux.getFuncionario().getCeleiro().getAnimais(tipo);
 				}
 			}
 		}
 		return qtdAll;
 	}
 	public int consultarAnimais(int id, String tipo) {
-		return this.fazendas.consultaFazenda(id).getCeleiro().getAnimais(tipo);
+		return this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().getAnimais(tipo);
 	}
 
-	public void comprarAnimaisF(int id, String tipo, int qtd, double lucroMensal ,double racaoMensal) {
-		this.fazendas.consultaFazenda(id).getCeleiro().adicionaAnimal(tipo, qtd, lucroMensal, racaoMensal);
+	public void comprarAnimaisF(int id, String tipo, int qtd, double lucroMensal ,double racaoMensal, int qtdRacaoDiaria) {
+		this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().adicionaAnimal(tipo, qtd, lucroMensal, racaoMensal, qtdRacaoDiaria);
 	}
 	
 	public int venderAnimaisF(int id, int qtd, String tipo) {
 		int teste = this.consultarAnimais(id, tipo);
 		if (qtd <= teste) {
-			this.fazendas.consultaFazenda(id).getCeleiro().removerAnimal(tipo, qtd);
+			this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().removerAnimal(tipo, qtd);
 			return 1;
 		}
 		return 0;
@@ -90,7 +90,7 @@ public class Proprietario implements Serializable{
 		for (int n = 0; n < 5; n++) {
 			if (this.fazendas.getFazendas()[n] != null) {
 				while (i < 10000) {
-					aux = this.fazendas.getFazendas()[n].getCeleiro().getRepositorio().getAnimais()[i];
+					aux = this.fazendas.getFazendas()[n].getFuncionario().getCeleiro().getRepositorio().getAnimais()[i];
 					if(aux != null) {
 						custosPrevistos += aux.getRacaoMensal() * qtdMes;
 					}
@@ -106,7 +106,7 @@ public class Proprietario implements Serializable{
 		int i = 0;
 		double custosPrevistos = 0;
 		while(i < 10000) {
-			aux = this.fazendas.consultaFazenda(id).getCeleiro().getRepositorio().getAnimais()[i];
+			aux = this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().getRepositorio().getAnimais()[i];
 			if (aux != null) {
 				custosPrevistos += aux.getRacaoMensal() * qtdMes;
 			}
@@ -124,7 +124,7 @@ public class Proprietario implements Serializable{
 			for (int n = 0; n < 5; n++) {
 				if (this.fazendas.getFazendas()[n] != null) {
 					while (i < 10000) {
-						aux = this.fazendas.getFazendas()[n].getCeleiro().getRepositorio().getAnimais()[i];
+						aux = this.fazendas.getFazendas()[n].getFuncionario().getCeleiro().getRepositorio().getAnimais()[i];
 						if(aux != null) {
 							if(aux.getNome().equals(tipo) && j < qtd) {
 								lucroPrevisto += aux.getPrecoVenda();
@@ -158,6 +158,6 @@ public class Proprietario implements Serializable{
 	
 	@Override
 	public String toString() {
-		return this.getNome() + ", CPF: " + this.getCPF();
+		return this.getNome() + ", CPF: " + this.getCPF() + " Possui: " +  this.fazendas.getQtdFazendas() + " Fazendas.";
 	}
 }

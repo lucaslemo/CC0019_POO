@@ -121,7 +121,7 @@ public class ControleSistema implements Initializable{
 		Stage s1 = new Stage();
         Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/listaSistema.fxml"));
         s1.initModality(Modality.APPLICATION_MODAL);
-        Scene scene = new Scene(root, 300, 300);
+        Scene scene = new Scene(root, 400, 400);
         s1.setMaximized(false);
 		s1.setResizable(false);
 		s1.setTitle("Lista de Clientes");

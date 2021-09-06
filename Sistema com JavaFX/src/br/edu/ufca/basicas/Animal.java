@@ -11,11 +11,13 @@ public class Animal implements Serializable{
 	private String nome;
 	private double precoVenda;
 	private double racaoMensal;
+	private int qtdRacaoDiaria;
 
-	public Animal(String tipo, double precoVenda, double racaoMensal) {
+	public Animal(String tipo, double precoVenda, double racaoMensal, int qtdRacaoDiaria) {
 		this.nome = tipo;
 		this.precoVenda = precoVenda;
 		this.racaoMensal = racaoMensal;
+		this.qtdRacaoDiaria = qtdRacaoDiaria;
 	}
 
 	public String getNome() {
@@ -40,5 +42,13 @@ public class Animal implements Serializable{
 
 	public void setRaçaoMensal(double racaoMensal) {
 		this.racaoMensal = racaoMensal;
+	}
+
+	public int getQtdRacaoDiaria() {
+		return qtdRacaoDiaria;
+	}
+
+	public void setQtdRacaoDiaria(int qtdRacaoDiaria) {
+		this.qtdRacaoDiaria = qtdRacaoDiaria;
 	}
 }
