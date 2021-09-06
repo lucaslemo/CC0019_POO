@@ -49,7 +49,7 @@ public class RepositorioCliente implements Serializable{
 		while(this.clientes[i] != null && i < 20) {
 			i++;
 		}
-		if(i < 10) {
+		if(i < 20) {
 			this.clientes[i] = novo;
 			this.setQtdClientes(this.getQtdClientes() + 1);
 			return 1;
@@ -69,7 +69,19 @@ public class RepositorioCliente implements Serializable{
 		}
 		return 0;
 	}
-
+	
+	public int atualizaCliente(String cpf, Proprietario novo) {
+		for(int i = 0; i < 20; i++) {
+			if(this.getClientes()[i] != null) {
+				if(this.getClientes()[i].getCPF().equals(cpf)) {
+					this.getClientes()[i] = novo;
+					return 1;
+				}
+			}
+		}
+		return 0;
+	}
+	
 	public Proprietario [] getClientes() {
 		return clientes;
 	}
