@@ -6,6 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="200.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.edu.ufca.controlador.ControleSistema">
-	<!-- TODO Add Nodes -->
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufca.controlador.ControleSistema">
+   <children>
+      <Button fx:id="btn05" layoutX="125.0" layoutY="261.0" mnemonicParsing="false" onAction="#func05" prefHeight="25.0" prefWidth="50.0" text="Sair" textAlignment="CENTER" />
+      <ListView fx:id="lista" layoutX="50.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
 </AnchorPane>
