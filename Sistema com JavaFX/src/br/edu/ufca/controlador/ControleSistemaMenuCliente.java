@@ -3,6 +3,7 @@ package br.edu.ufca.controlador;
 import java.net.URL;
 import java.util.ResourceBundle;
 import br.edu.ufca.basicas.Arquivo;
+import br.edu.ufca.basicas.ArquivoProprietario;
 import br.edu.ufca.basicas.Proprietario;
 import br.edu.ufca.basicas.Ultilitarios;
 import br.edu.ufca.repositorio.RepositorioCliente;
@@ -20,6 +21,7 @@ import javafx.stage.Stage;
 public class ControleSistemaMenuCliente implements Initializable{
 
 	private RepositorioCliente sistema = null;
+	private Proprietario usuario = null;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -28,8 +30,9 @@ public class ControleSistemaMenuCliente implements Initializable{
 
 	@FXML
     private void initialize() {
-		if(Arquivo.lerArquivo() != null) {
+		if(Arquivo.lerArquivo() != null && ArquivoProprietario.lerArquivo() != null) {
 			this.sistema = Arquivo.lerArquivo();
+			this.usuario = ArquivoProprietario.lerArquivo();
 		}
     }
 
@@ -38,57 +41,92 @@ public class ControleSistemaMenuCliente implements Initializable{
 
 	@FXML
 	Button btn02 = new Button();
+	
+	@FXML
+	Button btn03 = new Button();
 
 	@FXML
-	TextField nome = new TextField();
+	Button btn04 = new Button();
+	
+	@FXML
+	Button btn05 = new Button();
 
 	@FXML
-	TextField cpf = new TextField();
+	Button btn06 = new Button();
+	
+	@FXML
+	Button btn07 = new Button();
+	
+	@FXML
+	Button btn08 = new Button();
 
 	@FXML
-	Label valid = new Label();
+	Button btn09 = new Button();
 
 	@FXML
-	public void func01() throws Exception {
-		if(Ultilitarios.testaNumero(cpf.getText()) == 1) {
-			if (!nome.getText().equals("")) { 
-				String loginNome = nome.getText();
-				String loginCpf = cpf.getText();
-				Proprietario login = this.sistema.consultaCliente(loginCpf);
-				if(login == null || !login.getNome().equals(loginNome)) {
-					valid.setText("Nome ou CPF Invalido!");
-					System.out.println("Nome ou CPF Invalido!");
-					this.initialize();
-				}
-				else {
-					Stage stage = (Stage) btn02.getScene().getWindow();
-					stage.close();
-					System.out.println("Login realizado com sucesso");
-					Stage s1 = new Stage();
-			        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/menuCliente.fxml"));
-			        s1.initModality(Modality.APPLICATION_MODAL);
-			        Scene scene = new Scene(root, 400, 400);
-			        s1.setMaximized(false);
-					s1.setResizable(false);
-					s1.setTitle("Menu do Cliente");
-			        s1.setScene(scene);
-			        s1.show(); 
-				}
-			}
-			else {
-				valid.setText("Nome Invalido!");
-				System.out.println("Nome Invalido!");
-			}
-		}
-		else {
-			valid.setText("CPF Invalido!");
-			System.out.println("CPF Invalido!");
-		}
+	TextField id = new TextField();
+
+	@FXML
+	Label fazenda = new Label();
+	
+	@FXML
+	Label animal = new Label();
+
+	@FXML
+	public void func01() {
 	}
-
+	
 	@FXML
-	public void func02() {
-		Stage stage = (Stage) btn02.getScene().getWindow();
-		stage.close();
+	public void func02() throws Exception {
+		System.out.println("Lista de Fazendas");
+		Stage s1 = new Stage();
+        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/listaFazendas.fxml"));
+        s1.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = new Scene(root, 400, 400);
+        s1.setMaximized(false);
+		s1.setResizable(false);
+		s1.setTitle("Lista de Fazendas");
+        s1.setScene(scene);
+        s1.show(); 
+	}
+	
+	@FXML
+	public void func03() {
+	}
+	
+	@FXML
+	public void func04() {
+	}
+	
+	@FXML
+	public void func05() {
+	}
+	
+	@FXML
+	public void func06() {
+	}
+	
+	@FXML
+	public void func07() {
+	}
+	
+	@FXML
+	public void func08() {
+	}
+	
+	@FXML
+	public void func09() throws Exception {
+		Stage s1 = (Stage) btn09.getScene().getWindow();
+		s1.close();
+		System.out.println("Deslogando...");
+		Stage s2 = new Stage();
+	    Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/loginCliente.fxml"));
+	    s2.initModality(Modality.APPLICATION_MODAL);
+	    Scene scene = new Scene(root, 400, 450);
+	    s2.setMaximized(false);
+	    s2.setResizable(false);
+		s2.setTitle("Menu do Cliente");
+	    s2.setScene(scene);
+	    s2.show(); 
 	}
 }

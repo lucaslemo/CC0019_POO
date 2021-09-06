@@ -3,6 +3,7 @@ package br.edu.ufca.controlador;
 import java.net.URL;
 import java.util.ResourceBundle;
 import br.edu.ufca.basicas.Arquivo;
+import br.edu.ufca.basicas.ArquivoProprietario;
 import br.edu.ufca.basicas.Proprietario;
 import br.edu.ufca.basicas.Ultilitarios;
 import br.edu.ufca.repositorio.RepositorioCliente;
@@ -58,7 +59,8 @@ public class ControleSistemaCliente implements Initializable{
 				valid.setText("Nome ou CPF Invalido!");
 				System.out.println("Nome ou CPF Invalido!");
 			}
-			else {
+			else {	
+				ArquivoProprietario.gravarArquivo(login);
 				Stage s1 = (Stage) btn01.getScene().getWindow();
 				s1.close();
 				System.out.println("Login realizado com sucesso!");
