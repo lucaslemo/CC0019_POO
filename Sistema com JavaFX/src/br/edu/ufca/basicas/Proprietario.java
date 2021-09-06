@@ -12,6 +12,7 @@ public class Proprietario implements Serializable{
 	private String nome;
 	private String CPF;
 	private RepositorioFazendas fazendas;
+	private String senha;
 
 	public Proprietario(String nome, String CPF) {
 		this.nome = nome;
@@ -156,6 +157,14 @@ public class Proprietario implements Serializable{
 		CPF = cpf;
 	}
 	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	@Override
 	public String toString() {
 		return this.getNome() + ", CPF: " + this.getCPF() + " Possui: " +  this.fazendas.getQtdFazendas() + " Fazendas.";

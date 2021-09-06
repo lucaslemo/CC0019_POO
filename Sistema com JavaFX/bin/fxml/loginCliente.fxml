@@ -5,8 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="450.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufca.controlador.ControleSistemaCliente">
    <children>
       <Label alignment="CENTER" layoutX="60.0" layoutY="14.0" prefHeight="86.0" prefWidth="282.0" text="Sistema de Gerenciamento de Fazendas" textAlignment="CENTER" wrapText="true">
          <font>
@@ -18,10 +17,10 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="107.0" layoutY="185.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite o seu nome" />
-      <TextField layoutX="107.0" layoutY="225.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite o seu CPF" />
-      <Button layoutX="147.0" layoutY="274.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="107.0" text="Login" />
-      <Button layoutX="145.0" layoutY="375.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Sair" />
-      <Label alignment="CENTER" layoutX="46.0" layoutY="321.0" prefHeight="31.0" prefWidth="313.0" textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="nome" layoutX="107.0" layoutY="185.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite o seu nome" />
+      <TextField fx:id="cpf" layoutX="107.0" layoutY="225.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite o seu CPF" />
+      <Button fx:id="btn01" layoutX="147.0" layoutY="274.0" mnemonicParsing="false" onAction="#func01" prefHeight="25.0" prefWidth="107.0" text="Login" />
+      <Button fx:id="btn02" layoutX="145.0" layoutY="375.0" mnemonicParsing="false" onAction="#func02" prefHeight="25.0" prefWidth="110.0" text="Sair" />
+      <Label fx:id="valid" alignment="CENTER" layoutX="46.0" layoutY="321.0" prefHeight="31.0" prefWidth="313.0" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
