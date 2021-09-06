@@ -155,4 +155,9 @@ public class Proprietario implements Serializable{
 	public void setCPF(int cpf) {
 		CPF = cpf;
 	}
+	
+	@Override
+	public String toString() {
+		return this.getNome() + ", CPF: " + this.getCPF();
+	}
 }

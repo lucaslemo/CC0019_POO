@@ -12,10 +12,10 @@
       <Button fx:id="btn02" layoutX="148.0" layoutY="173.0" mnemonicParsing="false" onAction="#func02" prefHeight="25.0" prefWidth="107.0" text="Remover Cliente" textAlignment="CENTER" />
       <Button fx:id="btn03" layoutX="147.0" layoutY="416.0" mnemonicParsing="false" onAction="#func03" prefHeight="25.0" prefWidth="107.0" text="Sair" textAlignment="CENTER" />
       <Button fx:id="btn04" layoutX="147.0" layoutY="215.0" mnemonicParsing="false" onAction="#func04" prefHeight="25.0" prefWidth="107.0" text="Listar Clientes" />
-      <TextField fx:id="nome" layoutX="107.0" layoutY="264.0" promptText="Digite um nome" />
-      <TextField fx:id="cpf" layoutX="107.0" layoutY="303.0" promptText="Digite um CPF" />
-      <Label fx:id="valid" layoutX="126.0" layoutY="343.0" prefHeight="40.0" prefWidth="149.0" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="count" layoutX="50.0" layoutY="461.0" prefHeight="25.0" prefWidth="300.0" textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="nome" layoutX="126.0" layoutY="264.0" promptText="Digite um nome" />
+      <TextField fx:id="cpf" layoutX="126.0" layoutY="303.0" promptText="Digite um CPF" />
+      <Label fx:id="valid" alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="343.0" prefHeight="40.0" prefWidth="149.0" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="count" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="461.0" prefHeight="25.0" prefWidth="300.0" textAlignment="CENTER" wrapText="true" />
       <Label layoutX="59.0" layoutY="7.0" prefHeight="86.0" prefWidth="282.0" text="Sistema de Gerenciamento de Fazendas" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="20.0" />

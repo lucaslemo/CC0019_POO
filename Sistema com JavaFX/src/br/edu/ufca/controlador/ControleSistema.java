@@ -1,15 +1,11 @@
 package br.edu.ufca.controlador;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import br.edu.ufca.basicas.Arquivo;
 import br.edu.ufca.basicas.Proprietario;
 import br.edu.ufca.basicas.Ultilitarios;
 import br.edu.ufca.repositorio.RepositorioCliente;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,7 +13,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -25,7 +20,7 @@ import javafx.stage.Stage;
 public class ControleSistema implements Initializable{
 
 	private RepositorioCliente sistema = null;
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.initialize();
@@ -36,28 +31,8 @@ public class ControleSistema implements Initializable{
 		if(Arquivo.lerArquivo() != null) {
 			this.sistema = Arquivo.lerArquivo();
 		}
-		carregarClientes();
 		count.setText("Temos: " + sistema.getQtdClientes() + " clientes em nosso sistema!");
     }
-	
-	@FXML
-	private ListView<Proprietario> lista;
-	
-	private List<Proprietario> clientes = new ArrayList<>();
-	
-	private ObservableList<Proprietario> obsClientes;
-	
-	public void carregarClientes() {
-		Proprietario aux = null; 
-		for(int i = 0; i < 20; i++) {
-			aux = this.sistema.getClientes()[i];
-			if (aux != null) {
-				clientes.add(aux);
-			}
-			this.obsClientes = FXCollections.observableArrayList(clientes);
-			this.lista.setItems(this.obsClientes);
-		}
-	}
 
 	@FXML
 	Button btn01 = new Button();
@@ -70,9 +45,6 @@ public class ControleSistema implements Initializable{
 
 	@FXML
 	Button btn04 = new Button();
-
-	@FXML
-	Button btn05 = new Button();
 
 	@FXML
 	TextField nome = new TextField();
@@ -123,8 +95,9 @@ public class ControleSistema implements Initializable{
 
 	@FXML
 	public void func04() throws Exception {
+		System.out.println("Lista de Clientes");
 		Stage s1 = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/listaSistema.fxml"));
+        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/listaSistema.fxml"));
         s1.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 300, 300);
         s1.setMaximized(false);
@@ -132,11 +105,5 @@ public class ControleSistema implements Initializable{
 		s1.setTitle("Lista de Clientes");
         s1.setScene(scene);
         s1.show(); 
-	}
-
-	@FXML
-	public void func05() {
-		Stage stage = (Stage) btn05.getScene().getWindow();
-		stage.close();
 	}
 }
