@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label alignment="CENTER" layoutX="109.0" layoutY="14.0" prefHeight="86.0" prefWidth="282.0" text="Sistema de Gerenciamento de Fazendas" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="162.0" layoutY="83.0" prefHeight="57.0" prefWidth="177.0" text="Menu do Cliente" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="176.0" layoutY="140.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Criar Fazenda" />
+      <Button layoutX="251.0" layoutY="217.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Remover Fazenda" />
+      <Button layoutX="176.0" layoutY="178.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Listar Fazendas" />
+      <TextField fx:id="nome" layoutX="107.0" layoutY="217.0" prefHeight="30.0" prefWidth="137.0" promptText="Digite o ID" />
+      <Button layoutX="177.0" layoutY="316.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Comprar Animais" />
+      <Button layoutX="177.0" layoutY="355.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Consultar Animais" />
+      <Button layoutX="177.0" layoutY="393.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Vender Animais" />
+      <Button layoutX="152.0" layoutY="503.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="198.0" text="Consultar Lucro Previsto" />
+      <Button layoutX="151.0" layoutY="545.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="198.0" text="Consultar Custos Previstos" />
+      <Button fx:id="btn03" layoutX="198.0" layoutY="620.0" mnemonicParsing="false" onAction="#func03" prefHeight="25.0" prefWidth="107.0" text="Sair" textAlignment="CENTER" />
+      <Label alignment="CENTER" layoutX="74.0" layoutY="261.0" prefHeight="31.0" prefWidth="357.0" textAlignment="CENTER" wrapText="true" />
+      <Label alignment="CENTER" layoutX="72.0" layoutY="445.0" prefHeight="31.0" prefWidth="357.0" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>
