@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="450.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.edu.ufca.controlador.ControleSistemaFuncionario">
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufca.controlador.ControleSistemaMenuFuncionario">
    <children>
       <Label alignment="CENTER" layoutX="59.0" layoutY="14.0" prefHeight="86.0" prefWidth="282.0" text="Sistema de Gerenciamento de Fazendas" textAlignment="CENTER" wrapText="true">
          <font>
@@ -19,13 +18,15 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="btn01" layoutX="201.0" layoutY="174.0" mnemonicParsing="false" onAction="#fun01" prefHeight="25.0" text="Consultar Animais" />
+      <Button fx:id="btn01" layoutX="201.0" layoutY="174.0" mnemonicParsing="false" onAction="#func01" prefHeight="25.0" text="Consultar Animal" />
       <TextField fx:id="tipoAnimal" layoutX="88.0" layoutY="174.0" prefHeight="25.0" prefWidth="112.0" promptText="Animal procurado" />
-      <Button fx:id="btn02" layoutX="118.0" layoutY="247.0" mnemonicParsing="false" onAction="#func02" prefHeight="25.0" text="Consultar Estoque de Ração" />
-      <Button fx:id="btn03" layoutX="201.0" layoutY="282.0" mnemonicParsing="false" onAction="#func03" prefHeight="25.0" prefWidth="112.0" text="Comprar Ração" />
-      <TextField fx:id="qtdRacao" layoutX="88.0" layoutY="282.0" prefHeight="25.0" prefWidth="112.0" promptText="Quantidade" />
-      <Button fx:id="btn04" layoutX="144.0" layoutY="343.0" mnemonicParsing="false" onAction="#func04" prefHeight="25.0" text="Alimentar Animais" />
-      <Label fx:id="qtdAnimais" alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" layoutY="213.0" prefHeight="25.0" prefWidth="300.0" textAlignment="CENTER" />
-      <Button fx:id="btn05" layoutX="168.0" layoutY="402.0" mnemonicParsing="false" onAction="#func05" prefHeight="25.0" prefWidth="64.0" text="Sair" />
+      <Button fx:id="btn02" layoutX="118.0" layoutY="295.0" mnemonicParsing="false" onAction="#func02" prefHeight="25.0" text="Consultar Estoque de Ração" />
+      <Button fx:id="btn03" layoutX="201.0" layoutY="334.0" mnemonicParsing="false" onAction="#func03" prefHeight="25.0" prefWidth="112.0" text="Adquirir Ração" />
+      <TextField fx:id="qtdRacao" layoutX="88.0" layoutY="334.0" prefHeight="25.0" prefWidth="112.0" promptText="Quantidade" />
+      <Button fx:id="btn04" layoutX="144.0" layoutY="373.0" mnemonicParsing="false" onAction="#func04" prefHeight="25.0" text="Alimentar Animais" />
+      <Label fx:id="qtdAnimais" alignment="CENTER" contentDisplay="CENTER" layoutX="51.0" layoutY="213.0" prefHeight="25.0" prefWidth="300.0" textAlignment="CENTER" />
+      <Button fx:id="btn05" layoutX="155.0" layoutY="461.0" mnemonicParsing="false" onAction="#func05" prefHeight="25.0" prefWidth="90.0" text="Sair e Salvar" />
+      <Button fx:id="bnt06" layoutX="155.0" layoutY="258.0" mnemonicParsing="false" onAction="#func06" prefHeight="25.0" text="Listar Animais" />
+      <Label fx:id="qtdRacaoCons" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="416.0" prefHeight="25.0" prefWidth="300.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

@@ -62,6 +62,15 @@ public class ControleSistemaFuncionario implements Initializable{
 						Stage s1 = (Stage) btn01.getScene().getWindow();
 						s1.close();
 						System.out.println("Login realizado com sucesso!");
+						Stage s2 = new Stage();
+					    Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/menuFuncionario.fxml"));
+					    s2.initModality(Modality.APPLICATION_MODAL);
+					    Scene scene = new Scene(root, 400, 500);
+					    s2.setMaximized(false);
+					    s2.setResizable(false);
+						s2.setTitle("Menu do Funcionario");
+					    s2.setScene(scene);
+					    s2.show(); 
 
 					}
 					else {
