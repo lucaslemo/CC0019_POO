@@ -8,11 +8,4 @@ public class Ultilitarios {
 		}
 		return 0;
 	}
-	
-	public static int textoVazio(String text) {
-		if (text.length() == 0) {
-			return 1;
-		}
-		return 0;
-	}
 }

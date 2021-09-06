@@ -61,19 +61,25 @@ public class ControleSistema implements Initializable{
 	@FXML
 	public void func01() {
 		if(Ultilitarios.testaNumero(cpf.getText()) == 1) {
-			long novoCpf = Long.parseLong(cpf.getText());
-			if(this.sistema.consultaCliente(novoCpf) == null) {
-				String novoNome = nome.getText();
-				Proprietario novo = new Proprietario(novoNome, novoCpf);
-				this.sistema.adicionarCliente(novo);
-				Arquivo.gravarArquivo(sistema);
-				valid.setText("Cadastrado com Sucesso!");
-				System.out.println("Cadastrado com Sucesso!");
-				this.initialize();
+			if (!nome.getText().equals("")) { 
+				String novoCpf = cpf.getText();
+				if(this.sistema.consultaCliente(novoCpf) == null) {
+					String novoNome = nome.getText();
+					Proprietario novo = new Proprietario(novoNome, novoCpf);
+					this.sistema.adicionarCliente(novo);
+					Arquivo.gravarArquivo(sistema);
+					valid.setText("Cadastrado com Sucesso!");
+					System.out.println("Cadastrado com Sucesso!");
+					this.initialize();
+				}
+				else {
+					valid.setText("CPF ja Cadastrado!");
+					System.out.println("CPF ja Cadastrado!");
+				}
 			}
 			else {
-				valid.setText("CPF ja Cadastrado!");
-				System.out.println("CPF ja Cadastrado!");
+				valid.setText("Nome Invalido!");
+				System.out.println("Nome Invalido!");
 			}
 		}
 		else {
@@ -84,7 +90,23 @@ public class ControleSistema implements Initializable{
 
 	@FXML
 	public void func02() {
-		System.out.println("Botao 02");
+		if(Ultilitarios.testaNumero(cpf.getText()) == 1) {
+			String key = cpf.getText();
+			if(this.sistema.removeCliente(key) == 1) {
+				Arquivo.gravarArquivo(sistema);
+				valid.setText("Removido com Sucesso!");
+				System.out.println("Removido com Sucesso!");
+				this.initialize();
+			}
+			else {
+				valid.setText("CPF Inexistente!");
+				System.out.println("CPF Inexistente!");
+			}
+		}
+		else{
+			valid.setText("CPF Invalido!");
+			System.out.println("CPF Invalido!");
+		}
 	}
 
 	@FXML

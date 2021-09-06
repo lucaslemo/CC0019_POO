@@ -1,7 +1,6 @@
 package br.edu.ufca.basicas;
 
 import java.io.Serializable;
-import br.edu.ufca.repositorio.RepositorioFuncionarios;
 
 public class Fazenda implements Serializable{
 	/**
@@ -11,15 +10,15 @@ public class Fazenda implements Serializable{
 	private int Id;
 	private int Lucros_Previstos;
 	private Celeiro Celeiro;
-	private RepositorioFuncionarios Funcionarios;
-	
+	private Fazendeiro Funcionario;
+
 	public Fazenda(int Id) {
 		this.Id = Id;
 		this.Lucros_Previstos = 0;
 		this.Celeiro = new Celeiro();
-		this.Funcionarios = new RepositorioFuncionarios(0);
+		this.Funcionario = new Fazendeiro();
 	}
-	
+
 	public int getId() {
 		return Id;
 	}
@@ -31,13 +30,17 @@ public class Fazenda implements Serializable{
 	public int getLucros_Previstos() {
 		return Lucros_Previstos;
 	}
-	
+
 	public Celeiro getCeleiro() {
 		return Celeiro;
 	}
 
-	public RepositorioFuncionarios getFuncionarios() {
-		return Funcionarios;
+	public Fazendeiro getFuncionario() {
+		return Funcionario;
+	}
+
+	public void setFuncionario(Fazendeiro funcionario) {
+		Funcionario = funcionario;
 	}
 
 	@Override

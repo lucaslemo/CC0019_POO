@@ -18,12 +18,12 @@ public class RepositorioCliente implements Serializable{
 		this.qtdClientes = 0;
 	}
 
-	public Proprietario consultaCliente(long cpf) {
+	public Proprietario consultaCliente(String cpf) {
 		Proprietario aux = null;
 		for (int i = 0; i < 20; i++) {
 			aux = this.getClientes()[i];
 			if(aux != null) {
-				if(aux.getCPF() == cpf) {
+				if(aux.getCPF().equals(cpf)) {
 					return aux;
 				}
 			}
@@ -40,6 +40,19 @@ public class RepositorioCliente implements Serializable{
 			this.clientes[i] = novo;
 			this.setQtdClientes(this.getQtdClientes() + 1);
 			return 1;
+		}
+		return 0;
+	}
+
+	public int removeCliente(String cpf) {
+		for(int i = 0; i < 20; i++) {
+			if(this.getClientes()[i] != null) {
+				if(this.getClientes()[i].getCPF().equals(cpf)) {
+					this.getClientes()[i] = null;
+					this.setQtdClientes(this.getQtdClientes() - 1);
+					return 1;
+				}
+			}
 		}
 		return 0;
 	}

@@ -10,10 +10,10 @@ public class Proprietario implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String nome;
-	private long CPF;
+	private String CPF;
 	private RepositorioFazendas fazendas;
 
-	public Proprietario(String nome, long CPF) {
+	public Proprietario(String nome, String CPF) {
 		this.nome = nome;
 		this.CPF= CPF;
 		this.fazendas = new RepositorioFazendas();
@@ -148,11 +148,11 @@ public class Proprietario implements Serializable{
 		this.nome = nome;
 	}
 
-	public long getCPF() {
+	public String getCPF() {
 		return CPF;
 	}
 
-	public void setCPF(int cpf) {
+	public void setCPF(String cpf) {
 		CPF = cpf;
 	}
 	
