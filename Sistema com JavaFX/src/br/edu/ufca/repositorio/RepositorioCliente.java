@@ -30,6 +30,19 @@ public class RepositorioCliente implements Serializable{
 		}
 		return aux;
 	}
+	
+	public Proprietario consultaClientePorSenha(String senha) {
+		Proprietario aux = null;
+		for (int i = 0; i < 20; i++) {
+			aux = this.getClientes()[i];
+			if(aux != null) {
+				if(aux.getSenha().equals(senha)) {
+					return aux;
+				}
+			}
+		}
+		return aux;
+	}
 
 	public int adicionarCliente(Proprietario novo) {
 		int i = 0;

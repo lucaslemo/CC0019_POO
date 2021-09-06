@@ -19,7 +19,7 @@ public class Celeiro implements Serializable{
 
 	public void adicionaAnimal(String tipo, int qtd, double lucroMensal, double racaoMensal, int qtdRacaoDiaria) {
 		for (int i = 0; i < qtd; i++) {
-			Animal novo = new Animal(tipo, lucroMensal, racaoMensal, qtdRacaoDiaria);
+			Animal novo = new Animal(tipo.toUpperCase(), lucroMensal, racaoMensal, qtdRacaoDiaria);
 			this.Repositorio.adicionarAnimal(novo);
 		}
 	}
