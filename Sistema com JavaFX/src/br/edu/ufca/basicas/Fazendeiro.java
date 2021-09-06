@@ -9,9 +9,9 @@ public class Fazendeiro implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String nome;
-	private int cpf;
+	private long cpf;
 	
-	public Fazendeiro(String nome, int cpf) {
+	public Fazendeiro(String nome, long cpf) {
 		this.nome = nome;
 		this.cpf = cpf;
 	}
@@ -24,7 +24,7 @@ public class Fazendeiro implements Serializable{
 		this.nome = nome;
 	}
 	
-	public int getCpf() {
+	public long getCpf() {
 		return cpf;
 	}
 	

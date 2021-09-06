@@ -1,6 +1,7 @@
 package br.edu.ufca.basicas;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -33,6 +34,12 @@ public class Arquivo {
 			return clientes;
 		}catch(ClassNotFoundException erro) {
 			System.out.println("Nenhum arquivo encontrado. Criando arquivo data...");
+			clientes = new RepositorioCliente();
+			Arquivo.gravarArquivo(clientes);
+			return clientes;
+		}catch(FileNotFoundException erro){
+			System.out.println("Nenhum arquivo encontrado. Criando arquivo data...");
+			clientes = new RepositorioCliente();
 			Arquivo.gravarArquivo(clientes);
 			return clientes;
 		}catch(IOException erro) {
