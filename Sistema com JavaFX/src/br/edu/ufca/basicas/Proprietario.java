@@ -42,8 +42,8 @@ public class Proprietario implements Serializable{
 		}		
 	}
 
-	public void removerFazenda(int id) {
-		this.fazendas.removeFazenda(id);
+	public int removerFazenda(int id) {
+		return this.fazendas.removeFazenda(id);
 	}
 
 	public int consultarAnimais(String tipo) {
@@ -177,5 +177,16 @@ public class Proprietario implements Serializable{
 	@Override
 	public String toString() {
 		return this.getNome() + ", CPF: " + this.getCPF() + " Possui: " +  this.fazendas.getQtdFazendas() + " Fazendas.";
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		boolean result = false;
+		if(o instanceof Proprietario) {
+			if(this.nome.equals(((Proprietario) o).nome) && this.CPF.equals(((Proprietario) o).CPF)) {
+				result = true;
+			}
+		}
+		return result;
 	}
 }

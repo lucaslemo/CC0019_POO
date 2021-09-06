@@ -40,7 +40,7 @@ public class RepositorioFazendas implements Serializable{
 		return null;
 	}
 
-	public void removeFazenda(int id) {
+	public int removeFazenda(int id) {
 		for (int i = 0; i < 5; i++) {
 			if(this.fazendas[i] == null) {
 				continue;
@@ -48,8 +48,10 @@ public class RepositorioFazendas implements Serializable{
 			else if(this.fazendas[i].getId() ==  id) {
 				this.fazendas[i] = null;
 				this.qtdFazendas = this.getQtdFazendas() - 1;
+				return 1;
 			}
 		}
+		return 0;
 	}
 
 	public Fazenda [] getFazendas() {

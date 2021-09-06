@@ -74,13 +74,29 @@ public class ControleSistemaMenuCliente implements Initializable{
 
 	@FXML
 	public void func01() {
+		Proprietario aux = null;
+		for (int i = 0; i < 20; i++) {
+			aux = this.sistema.getClientes()[i];
+			if(aux != null) {
+				if(aux.equals(usuario)) {	
+					aux.criarFazenda();
+					this.sistema.atualizaCliente(aux.getCPF(), aux);
+					Arquivo.gravarArquivo(sistema);
+					usuario = aux;
+					ArquivoProprietario.gravarArquivo(usuario);
+					fazenda.setText("Fazenda adicionada com sucesso!");
+					System.out.println("Fazenda adicionada com sucesso!");
+					this.initialize();
+				}
+			}
+		}
 	}
 	
 	@FXML
 	public void func02() throws Exception {
 		System.out.println("Lista de Fazendas");
 		Stage s1 = new Stage();
-        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/listaFazendas.fxml"));
+        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/listaFazendas.fxml "));
         s1.initModality(Modality.APPLICATION_MODAL);
         Scene scene = new Scene(root, 400, 400);
         s1.setMaximized(false);
@@ -92,6 +108,39 @@ public class ControleSistemaMenuCliente implements Initializable{
 	
 	@FXML
 	public void func03() {
+		if(!id.getText().equals("")) {
+			if(Ultilitarios.testaNumero(id.getText()) == 1) {
+				Proprietario aux = null;
+				for (int i = 0; i < 20; i++) {
+					aux = this.sistema.getClientes()[i];
+					if(aux != null) {
+						if(aux.equals(usuario)) {
+							if(aux.removerFazenda(Integer.valueOf(id.getText())) == 1) {
+								this.sistema.atualizaCliente(aux.getCPF(), aux);
+								Arquivo.gravarArquivo(sistema);
+								usuario = aux;
+								ArquivoProprietario.gravarArquivo(usuario);
+								fazenda.setText("Fazenda removida com sucesso!");
+								System.out.println("Fazenda removida com sucesso!");
+								this.initialize();
+							}
+							else {
+								fazenda.setText("A fazenda com esse ID não existe");
+								System.out.println("A fazenda com esse ID não existe");
+							}
+						}
+					}
+				}
+			}
+			else {
+				fazenda.setText("Este ID é inválido");
+				System.out.println("Este ID é inválido");
+			}
+		}
+		else {
+			fazenda.setText("ERRO! Não deixe a caixa do ID vazio.");
+			System.out.println("ERRO! Não deixe a caixa do ID vazio.");
+		}
 	}
 	
 	@FXML
