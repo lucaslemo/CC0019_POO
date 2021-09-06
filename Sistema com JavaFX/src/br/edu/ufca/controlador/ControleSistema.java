@@ -95,7 +95,7 @@ public class ControleSistema implements Initializable{
 	@FXML
 	public void func04() throws Exception {
 		Stage s1 = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/telaSistema.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/listaSistema.fxml"));
         Scene scene = new Scene(root);
         s1.setScene(scene);
         s1.show(); 
