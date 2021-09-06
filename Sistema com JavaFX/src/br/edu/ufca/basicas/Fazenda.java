@@ -36,7 +36,12 @@ public class Fazenda implements Serializable{
 	public void setFuncionario(Fazendeiro funcionario) {
 		Funcionario = funcionario;
 	}
-
+	
+	@Override
+	public String toString() {
+		return this.getId() + ", Lucros: " + this.getLucros_Previstos() + " Possui: " +  this.Funcionario.getCeleiro().getRepositorio().getQtdAnimal() + " Animais.";
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		boolean result = false;

@@ -67,6 +67,7 @@ public class Proprietario implements Serializable{
 		}
 		return qtdAll;
 	}
+	
 	public int consultarAnimais(int id, String tipo) {
 		return this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().getAnimais(tipo);
 	}
@@ -163,6 +164,14 @@ public class Proprietario implements Serializable{
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public RepositorioFazendas getRepositorioFazendas() {
+		return fazendas;
+	}
+
+	public void setRepositorioFazendas(RepositorioFazendas fazendas) {
+		this.fazendas = fazendas;
 	}
 
 	@Override
