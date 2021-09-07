@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufca.controlador.ControleSistemaCompraAnimais">
+   <children>
+      <Label alignment="CENTER" layoutX="113.0" layoutY="14.0" prefHeight="57.0" prefWidth="177.0" text="Compra de Animais" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tipo" layoutX="107.0" layoutY="85.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite o tipo do Animal" />
+      <TextField fx:id="qtd" layoutX="107.0" layoutY="125.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite a quantidade de Animais" />
+      <Button fx:id="btn01" layoutX="149.0" layoutY="254.0" mnemonicParsing="false" onAction="#func01" prefHeight="25.0" prefWidth="107.0" text="Comprar" />
+      <Button fx:id="btn02" layoutX="146.0" layoutY="339.0" mnemonicParsing="false" onAction="#func02" prefHeight="25.0" prefWidth="110.0" text="Sair" />
+      <Label fx:id="valid" alignment="CENTER" layoutX="46.0" layoutY="299.0" prefHeight="31.0" prefWidth="313.0" textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="lucro" layoutX="107.0" layoutY="165.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite o Lucro Mensal gerado" />
+      <TextField fx:id="racao" layoutX="107.0" layoutY="203.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite a quantidade de Ração Mensal" />
+   </children>
+</AnchorPane>

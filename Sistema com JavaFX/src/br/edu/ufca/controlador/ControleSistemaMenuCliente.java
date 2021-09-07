@@ -156,6 +156,7 @@ public class ControleSistemaMenuCliente implements Initializable{
 	
 	@FXML
 	public void func04() throws Exception {
+		this.initialize();
 		if(!idCompra.getText().equals("")) {
 			if(Ultilitarios.testaNumero(idCompra.getText()) == 1) {
 				Proprietario aux = null;
@@ -198,6 +199,7 @@ public class ControleSistemaMenuCliente implements Initializable{
 	
 	@FXML
 	public void func05() throws Exception {
+		this.initialize();
 		if(!idConsulta.getText().equals("")) {
 			if(Ultilitarios.testaNumero(idConsulta.getText()) == 1) {
 				Proprietario aux = null;
