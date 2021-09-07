@@ -40,9 +40,10 @@ public class Fazendeiro implements Serializable{
 			if (aux != null) {
 				racaoNec = aux.getQtdRacaoDiaria();
 			}
+			i++;
 		}
 		if(this.getCeleiro().getRacao() >= racaoNec) {
-			this.getCeleiro().setRacao(this.getCeleiro().getRacao() + racaoNec);
+			this.getCeleiro().setRacao(this.getCeleiro().getRacao() - racaoNec);
 		}
 		
 	}

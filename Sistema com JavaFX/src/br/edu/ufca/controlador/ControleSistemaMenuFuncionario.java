@@ -92,6 +92,7 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 				int qtd = Integer.parseInt(qtdRacao.getText());
 				int racao = this.funcionario.getFuncionario().getCeleiro().getRacao();
 				this.funcionario.getFuncionario().getCeleiro().setRacao(racao + qtd);
+				this.func02();
 			}
 			else {
 				qtdRacaoCons.setText("Entrada Inválida!");
@@ -105,6 +106,7 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 	@FXML
 	public void func04() {
 		this.funcionario.getFuncionario().alimentarAnimais();
+		this.func02();
 	}
 
 	@FXML
@@ -128,7 +130,16 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 	}
 
 	@FXML
-	public void func06() {
-		
+	public void func06() throws IOException {
+		System.out.println("Lista de Animais");
+		Stage s1 = new Stage();
+        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/listaAnimais.fxml"));
+        s1.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = new Scene(root, 400, 400);
+        s1.setMaximized(false);
+		s1.setResizable(false);
+		s1.setTitle("Lista de Animais");
+        s1.setScene(scene);
+        s1.show(); 
 	}
 }

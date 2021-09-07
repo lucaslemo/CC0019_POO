@@ -51,4 +51,10 @@ public class Animal implements Serializable{
 	public void setQtdRacaoDiaria(int qtdRacaoDiaria) {
 		this.qtdRacaoDiaria = qtdRacaoDiaria;
 	}
+	
+	@Override
+	public String toString() {
+		String tipo = this.getNome().substring(0,1).concat(this.getNome().substring(1,this.getNome().length()).toLowerCase());
+		return tipo + ", Ração diária: " + this.getQtdRacaoDiaria();
+	}
 }
