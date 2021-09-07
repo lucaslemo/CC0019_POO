@@ -11,7 +11,7 @@ public class ArquivoFazenda {
 
 	public static void gravarArquivo(Fazenda usuario) {
 		try {
-			FileOutputStream arq = new FileOutputStream("resources/data/user_Fun_data.ser");
+			FileOutputStream arq = new FileOutputStream("resources/data/aux_user_data.ser");
 			ObjectOutputStream obj = new ObjectOutputStream(arq);
 			obj.writeObject(usuario);
 			obj.flush();
@@ -25,7 +25,7 @@ public class ArquivoFazenda {
 	
 	public static Fazenda lerArquivo() {
 		try {
-			FileInputStream arq = new FileInputStream("resources/data/user_Fun_data.ser");
+			FileInputStream arq = new FileInputStream("resources/data/aux_user_data.ser");
 			ObjectInputStream obj = new ObjectInputStream(arq);
 			Fazenda usuario = (Fazenda) obj.readObject();
 			obj.close();

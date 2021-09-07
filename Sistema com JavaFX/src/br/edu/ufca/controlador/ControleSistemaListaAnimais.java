@@ -36,14 +36,17 @@ public class ControleSistemaListaAnimais implements Initializable{
 
 	void carregaLista(){
 		Animal aux = null;
+		int racaoDia = 0;
 		obsLista.removeAll(obsLista);
 		for(int i = 0; i < 10000; i++) {
 			aux = this.sistema.getFuncionario().getCeleiro().getRepositorio().getAnimais()[i];
 			if(aux != null) {
+				racaoDia += aux.getQtdRacaoDiaria();
 				obsLista.add("N°: "+ (i + 1) + " - " + aux.toString());
 			}
 		}
 		lista.getItems().addAll(obsLista);
+		info.setText("A quantidade total de Ração diária gasta na fazenda é: " + racaoDia);
 	}
 
 	@FXML

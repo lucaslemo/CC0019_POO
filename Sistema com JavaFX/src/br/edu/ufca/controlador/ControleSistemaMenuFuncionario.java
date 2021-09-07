@@ -105,8 +105,10 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 
 	@FXML
 	public void func04() {
-		this.funcionario.getFuncionario().alimentarAnimais();
-		this.func02();
+		if(this.funcionario.getFuncionario().alimentarAnimais() == 1) {
+			this.func02();
+		}
+		qtdRacaoCons.setText("A ração em estoque não é o suficiente!");
 	}
 
 	@FXML
