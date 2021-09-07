@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
@@ -46,6 +47,9 @@ public class ControleSistemaListaFazenda implements Initializable{
 
 	@FXML
 	ListView<String> lista;
+	
+	@FXML
+	Label total = new Label();
 
 	@FXML
 	Button btn01 = new Button();

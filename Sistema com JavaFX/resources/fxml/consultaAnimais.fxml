@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ufca.controlador.ControleSistemaConsultaAnimais">
+   <children>
+      <TextField fx:id="animal" layoutX="107.0" layoutY="95.0" prefHeight="31.0" prefWidth="187.0" promptText="Digite o tipo de Animal" />
+      <Button fx:id="btn01" layoutX="147.0" layoutY="135.0" mnemonicParsing="false" onAction="#func01" prefHeight="25.0" prefWidth="107.0" text="Consultar" />
+      <Button fx:id="btn02" layoutX="145.0" layoutY="239.0" mnemonicParsing="false" onAction="#func02" prefHeight="25.0" prefWidth="110.0" text="Sair" />
+      <Label fx:id="total" alignment="CENTER" layoutX="44.0" layoutY="30.0" prefHeight="31.0" prefWidth="313.0" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="tipo" alignment="CENTER" layoutX="44.0" layoutY="187.0" prefHeight="31.0" prefWidth="313.0" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>
