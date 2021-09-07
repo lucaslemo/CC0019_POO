@@ -69,7 +69,7 @@ public class RepositorioCliente implements Serializable{
 		}
 		return 0;
 	}
-	
+
 	public int atualizaCliente(String cpf, Proprietario novo) {
 		for(int i = 0; i < 20; i++) {
 			if(this.getClientes()[i] != null) {
@@ -81,7 +81,7 @@ public class RepositorioCliente implements Serializable{
 		}
 		return 0;
 	}
-	
+
 	public Proprietario [] getClientes() {
 		return clientes;
 	}

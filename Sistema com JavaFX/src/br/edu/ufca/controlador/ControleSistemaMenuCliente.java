@@ -239,19 +239,48 @@ public class ControleSistemaMenuCliente implements Initializable{
 			System.out.println("ERRO! Não deixe a caixa do ID vazio.");
 		}
 	}
-	
+
 	@FXML
 	public void func06() throws Exception {
-		System.out.println("Venda de Animais");
-		Stage s1 = new Stage();
-        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/vendaAnimais.fxml "));
-        s1.initModality(Modality.APPLICATION_MODAL);
-        Scene scene = new Scene(root, 400, 400);
-        s1.setMaximized(false);
-		s1.setResizable(false);
-		s1.setTitle("Venda de Animais");
-        s1.setScene(scene);
-        s1.show(); 
+		this.initialize();
+		if(!idVenda.getText().equals("")) {
+			if(Ultilitarios.testaNumero(idVenda.getText()) == 1) {
+				Proprietario aux = null;
+				for (int i = 0; i < 20; i++) {
+					aux = this.sistema.getClientes()[i];
+					if(aux != null) {
+						if(aux.equals(usuario)) {
+							if(aux.getRepositorioFazendas().consultaFazenda(Integer.valueOf(idVenda.getText())) != null) {
+								System.out.println("Venda de Animais");
+								Fazenda fazenda = aux.getRepositorioFazendas().consultaFazenda(Integer.valueOf(idVenda.getText()));
+								ArquivoFazenda.gravarArquivo(fazenda);
+								Stage s1 = new Stage();
+							    Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/vendaAnimais.fxml "));
+							    s1.initModality(Modality.APPLICATION_MODAL);
+							    Scene scene = new Scene(root, 400, 400);
+							    s1.setMaximized(false);
+								s1.setResizable(false);
+								s1.setTitle("Venda de Animais");
+							    s1.setScene(scene);
+							    s1.show(); 
+							}
+							else {
+								animal.setText("A fazenda com esse ID não existe");
+								System.out.println("A fazenda com esse ID não existe");
+							}
+						}
+					}
+				}
+			}
+			else {
+				animal.setText("Este ID é inválido");
+				System.out.println("Este ID é inválido");
+			}
+		}
+		else {
+			animal.setText("ERRO! Não deixe a caixa do ID vazio.");
+			System.out.println("ERRO! Não deixe a caixa do ID vazio.");
+		}
 	}
 	
 	@FXML
