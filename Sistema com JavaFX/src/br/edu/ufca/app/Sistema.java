@@ -33,13 +33,10 @@ public class Sistema extends Application {
 		n.adicionarCliente(y);
 		n.adicionarCliente(z);
 		n.consultaCliente("123444").criarFazenda();
-		n.consultaCliente("3345").criarFazenda();
-		n.consultaCliente("4567").criarFazenda();
+		n.consultaCliente("123444").criarFazenda();
 		n.consultaCliente("123444").comprarAnimaisF(1, "Gado", 150 ,13.0, 17.0, 11);
-		n.consultaCliente("123444").comprarAnimaisF(1, "galinha", 234, 13.0, 17.0, 11);
-		n.consultaCliente("123444").comprarAnimaisF(1, "Galinha", 45,13.0, 17.0, 11);
-		n.consultaCliente("3345").comprarAnimaisF(1, "Gado", 13, 78.1,17.0, 11);
-		n.consultaCliente("4567").comprarAnimaisF(1, "Gado", 13, 13.5, 17.0, 11);
+		n.consultaCliente("123444").comprarAnimaisF(1, "Pata", 321 ,13.0, 17.0, 11);
+		n.consultaCliente("123444").comprarAnimaisF(2, "Galo", 321 ,13.0, 17.0, 11);
 		Arquivo.gravarArquivo(n);
 		
 		launch(args);		

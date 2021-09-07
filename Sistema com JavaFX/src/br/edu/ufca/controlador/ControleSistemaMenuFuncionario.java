@@ -108,7 +108,9 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 		if(this.funcionario.getFuncionario().alimentarAnimais() == 1) {
 			this.func02();
 		}
-		qtdRacaoCons.setText("A ração em estoque não é o suficiente!");
+		else {
+			qtdRacaoCons.setText("A ração em estoque não é o suficiente!");
+		}
 	}
 
 	@FXML
