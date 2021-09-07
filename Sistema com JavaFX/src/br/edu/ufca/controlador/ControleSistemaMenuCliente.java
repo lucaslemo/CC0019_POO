@@ -285,7 +285,7 @@ public class ControleSistemaMenuCliente implements Initializable{
 	}
 	
 	@FXML
-	public void func07() throws Exception{
+	public void func07() throws Exception {
 		this.initialize();
 		System.out.println("Lucros Previstos");
 		Stage s1 = new Stage();
@@ -300,7 +300,18 @@ public class ControleSistemaMenuCliente implements Initializable{
 	}
 	
 	@FXML
-	public void func08() {
+	public void func08() throws Exception {
+		this.initialize();
+		System.out.println("Custos Previstos");
+		Stage s1 = new Stage();
+        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/consultaCustos.fxml "));
+        s1.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = new Scene(root, 400, 300);
+        s1.setMaximized(false);
+		s1.setResizable(false);
+		s1.setTitle("Custos Previstos");
+        s1.setScene(scene);
+        s1.show();
 		
 	}
 	

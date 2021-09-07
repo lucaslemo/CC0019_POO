@@ -92,6 +92,7 @@ public class ControleSistemaMenuFuncionario implements Initializable{
 				int qtd = Integer.parseInt(qtdRacao.getText());
 				int racao = this.funcionario.getFuncionario().getCeleiro().getRacao();
 				this.funcionario.getFuncionario().getCeleiro().setRacao(racao + qtd);
+				this.funcionario.adicionarCustos(qtd);
 				this.func02();
 			}
 			else {

@@ -76,11 +76,13 @@ public class Proprietario implements Serializable{
 
 	public void comprarAnimaisF(int id, String tipo, int qtd, double lucroMensal ,double racaoMensal, int qtdRacaoDiaria) {
 		this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().adicionaAnimal(tipo, qtd, lucroMensal, racaoMensal, qtdRacaoDiaria);
+		this.fazendas.consultaFazenda(id).adicionarLucros((int)lucroMensal);
 	}
 	
-	public int venderAnimaisF(int id, int qtd, String tipo) {
+	public int venderAnimaisF(int id, String tipo, int qtd) {
 		int teste = this.consultarAnimais(id, tipo);
 		if (qtd <= teste) {
+			this.fazendas.consultaFazenda(id).removerLucros(this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().getLucros(tipo));
 			this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().removerAnimal(tipo, qtd);
 			return 1;
 		}

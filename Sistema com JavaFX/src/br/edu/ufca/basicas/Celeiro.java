@@ -44,6 +44,21 @@ public class Celeiro implements Serializable{
 		}
 		return qtd;
 	}
+	
+	public int getLucros(String tipo) {
+		int qtd = 0, i = 0;
+		Animal aux = null;
+		while (i < 10000) {
+			aux = this.getRepositorio().getAnimais()[i];
+			if (aux != null) {
+				if (aux.getNome().equals(tipo)) {
+					qtd += aux.getPrecoVenda();
+				}
+			}
+			i++;
+		}
+		return qtd;
+	}
 
 	public int getRacao() {
 		return this.qtdRacao;

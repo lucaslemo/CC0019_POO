@@ -49,29 +49,27 @@ public class ControleSistemaVendaAnimais implements Initializable{
 	TextField qtd = new TextField();
 
 	@FXML
-	TextField lucro = new TextField();
-	
-	@FXML
-	TextField racao = new TextField();
-
-	@FXML
 	Label valid = new Label();
 	
 	@FXML
 	public void func01() {
-		if(Ultilitarios.testaNumero(qtd.getText()) == 1 && Ultilitarios.testaNumero(lucro.getText()) == 1 && Ultilitarios.testaNumero(racao.getText()) == 1) {
-			if (!tipo.getText().equals("") && !qtd.getText().equals("") && !lucro.getText().equals("") && !racao.getText().equals("")) { 
+		if(Ultilitarios.testaNumero(qtd.getText()) == 1) {
+			if (!tipo.getText().equals("") && !qtd.getText().equals("")) { 
 				String tipoAnimal = tipo.getText();
 				int qtdAnimal = Integer.valueOf(qtd.getText());
-				double lucroMensal = Double.valueOf(lucro.getText());
-				double racaoMensal = Double.valueOf(racao.getText());
-				int racaoDiaria = (int)racaoMensal/30;
-				this.usuario.comprarAnimaisF(this.fazenda.getId(), tipoAnimal, qtdAnimal, lucroMensal, racaoMensal, racaoDiaria);
-				this.sistema.atualizaCliente(this.usuario.getCPF(), this.usuario);
-				Arquivo.gravarArquivo(sistema);
-				ArquivoProprietario.gravarArquivo(usuario);
-				ArquivoFazenda.gravarArquivo(fazenda);
-				this.initialize();		
+					if(this.usuario.venderAnimaisF(this.fazenda.getId(), tipoAnimal, qtdAnimal) == 1) {
+						this.sistema.atualizaCliente(this.usuario.getCPF(), this.usuario);
+						Arquivo.gravarArquivo(sistema);
+						ArquivoProprietario.gravarArquivo(usuario);
+						ArquivoFazenda.gravarArquivo(fazenda);
+						valid.setText("Animais Vendidos com sucesso!");
+						System.out.println("Animais Vendidos com sucesso!");
+						this.initialize();	
+					}
+					else {
+						valid.setText("Não existem animais suficientes desse tipo para vender!");
+						System.out.println("Não existem animais suficientes desse tipo para vender!");
+					}
 			}
 			else {
 				valid.setText("Preencher Campos Vazios!");

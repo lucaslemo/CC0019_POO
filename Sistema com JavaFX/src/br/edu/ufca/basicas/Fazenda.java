@@ -31,12 +31,24 @@ public class Fazenda implements Serializable{
 		return Lucros_Previstos;
 	}
 	
+	public void adicionarLucros(int lucroMensal) {
+		this.Lucros_Previstos += lucroMensal;
+	}
+	
+	public void removerLucros(int lucroMensal) {
+		this.Lucros_Previstos -= lucroMensal;
+	}
+	
 	public int getCustos_Previstos() {
 		return Custos_Previstos;
 	}
 	
-	public int adicionarCustos(int racao) {
-		return Custos_Previstos;
+	public void adicionarCustos(int racao) {
+		this.Custos_Previstos += racao;
+	}
+	
+	public void removerCustos(int racao) {
+		this.Custos_Previstos -= racao;
 	}
 	
 	public Fazendeiro getFuncionario() {
