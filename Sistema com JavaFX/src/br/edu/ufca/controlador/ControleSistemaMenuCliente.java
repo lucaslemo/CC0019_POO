@@ -3,8 +3,10 @@ package br.edu.ufca.controlador;
 import java.net.URL;
 import java.util.ResourceBundle;
 import br.edu.ufca.basicas.Arquivo;
+import br.edu.ufca.basicas.ArquivoFazenda;
 import br.edu.ufca.basicas.ArquivoProprietario;
 import br.edu.ufca.basicas.Proprietario;
+import br.edu.ufca.basicas.Fazenda;
 import br.edu.ufca.basicas.Ultilitarios;
 import br.edu.ufca.repositorio.RepositorioCliente;
 import javafx.fxml.FXML;
@@ -64,7 +66,16 @@ public class ControleSistemaMenuCliente implements Initializable{
 	Button btn09 = new Button();
 
 	@FXML
-	TextField id = new TextField();
+	TextField idFazendas = new TextField();
+	
+	@FXML
+	TextField idCompra = new TextField();
+	
+	@FXML
+	TextField idConsulta = new TextField();
+	
+	@FXML
+	TextField idVenda = new TextField();
 
 	@FXML
 	Label fazenda = new Label();
@@ -103,19 +114,19 @@ public class ControleSistemaMenuCliente implements Initializable{
 		s1.setResizable(false);
 		s1.setTitle("Lista de Fazendas");
         s1.setScene(scene);
-        s1.show(); 
+        s1.show();
 	}
 	
 	@FXML
 	public void func03() {
-		if(!id.getText().equals("")) {
-			if(Ultilitarios.testaNumero(id.getText()) == 1) {
+		if(!idFazendas.getText().equals("")) {
+			if(Ultilitarios.testaNumero(idFazendas.getText()) == 1) {
 				Proprietario aux = null;
 				for (int i = 0; i < 20; i++) {
 					aux = this.sistema.getClientes()[i];
 					if(aux != null) {
 						if(aux.equals(usuario)) {
-							if(aux.removerFazenda(Integer.valueOf(id.getText())) == 1) {
+							if(aux.removerFazenda(Integer.valueOf(idFazendas.getText())) == 1) {
 								this.sistema.atualizaCliente(aux.getCPF(), aux);
 								Arquivo.gravarArquivo(sistema);
 								usuario = aux;
@@ -144,15 +155,101 @@ public class ControleSistemaMenuCliente implements Initializable{
 	}
 	
 	@FXML
-	public void func04() {
+	public void func04() throws Exception {
+		if(!idCompra.getText().equals("")) {
+			if(Ultilitarios.testaNumero(idCompra.getText()) == 1) {
+				Proprietario aux = null;
+				for (int i = 0; i < 20; i++) {
+					aux = this.sistema.getClientes()[i];
+					if(aux != null) {
+						if(aux.equals(usuario)) {
+							if(aux.getRepositorioFazendas().consultaFazenda(Integer.valueOf(idCompra.getText())) != null) {
+								Fazenda fazenda = aux.getRepositorioFazendas().consultaFazenda(Integer.valueOf(idCompra.getText()));
+								ArquivoFazenda.gravarArquivo(fazenda);
+								System.out.println("Compra de Animais");
+								Stage s1 = new Stage();
+						        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/compraAnimais.fxml"));
+						        s1.initModality(Modality.APPLICATION_MODAL);
+						        Scene scene = new Scene(root, 400, 400);
+						        s1.setMaximized(false);
+								s1.setResizable(false);
+								s1.setTitle("Compra de Animais");
+						        s1.setScene(scene);
+						        s1.show(); 
+							}
+							else {
+								animal.setText("A fazenda com esse ID não existe");
+								System.out.println("A fazenda com esse ID não existe");
+							}
+						}
+					}
+				}
+			}
+			else {
+				animal.setText("Este ID é inválido");
+				System.out.println("Este ID é inválido");
+			}
+		}
+		else {
+			animal.setText("ERRO! Não deixe a caixa do ID vazio.");
+			System.out.println("ERRO! Não deixe a caixa do ID vazio.");
+		}
 	}
 	
 	@FXML
-	public void func05() {
+	public void func05() throws Exception {
+		if(!idConsulta.getText().equals("")) {
+			if(Ultilitarios.testaNumero(idConsulta.getText()) == 1) {
+				Proprietario aux = null;
+				for (int i = 0; i < 20; i++) {
+					aux = this.sistema.getClientes()[i];
+					if(aux != null) {
+						if(aux.equals(usuario)) {
+							if(aux.getRepositorioFazendas().consultaFazenda(Integer.valueOf(idConsulta.getText())) != null) {
+								Fazenda fazenda = aux.getRepositorioFazendas().consultaFazenda(Integer.valueOf(idConsulta.getText()));
+								ArquivoFazenda.gravarArquivo(fazenda);
+								System.out.println("Consulta de Animais");
+								Stage s1 = new Stage();
+						        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/consultaAnimais.fxml"));
+						        s1.initModality(Modality.APPLICATION_MODAL);
+						        Scene scene = new Scene(root, 400, 300);
+						        s1.setMaximized(false);
+								s1.setResizable(false);
+								s1.setTitle("Consulta de Animais");
+						        s1.setScene(scene);
+						        s1.show(); 
+							}
+							else {
+								animal.setText("A fazenda com esse ID não existe");
+								System.out.println("A fazenda com esse ID não existe");
+							}
+						}
+					}
+				}
+			}
+			else {
+				animal.setText("Este ID é inválido");
+				System.out.println("Este ID é inválido");
+			}
+		}
+		else {
+			animal.setText("ERRO! Não deixe a caixa do ID vazio.");
+			System.out.println("ERRO! Não deixe a caixa do ID vazio.");
+		}
 	}
 	
 	@FXML
-	public void func06() {
+	public void func06() throws Exception {
+		System.out.println("Venda de Animais");
+		Stage s1 = new Stage();
+        Parent root = (Parent) FXMLLoader.load(getClass().getResource("/fxml/vendaAnimais.fxml "));
+        s1.initModality(Modality.APPLICATION_MODAL);
+        Scene scene = new Scene(root, 400, 400);
+        s1.setMaximized(false);
+		s1.setResizable(false);
+		s1.setTitle("Venda de Animais");
+        s1.setScene(scene);
+        s1.show(); 
 	}
 	
 	@FXML
