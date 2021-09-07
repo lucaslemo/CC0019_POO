@@ -87,61 +87,56 @@ public class Proprietario implements Serializable{
 		return 0;
 	}
 
-	public double consultarCustosPrevistos(int qtdMes) {
+	public double consultarCustosPrevistos() {
+		double custosPrevistos = 0;
+		for (int n = 0; n < 5; n++) {
+			if (this.fazendas.getFazendas()[n] != null) {
+				custosPrevistos += this.fazendas.getFazendas()[n].getCustos_Previstos();
+			}
+		}
+		return custosPrevistos;
+	}
+
+	public double consultarCustosPrevistosF(int id) {
+		double custosPrevistos = 0;
+		if (this.fazendas.consultaFazenda(id) != null) {
+			custosPrevistos = this.fazendas.consultaFazenda(id).getCustos_Previstos();
+		}
+		return custosPrevistos;
+	}
+
+	public double consultarLucroPrevisto() {
 		Animal aux = null;
 		int i = 0;
-		double custosPrevistos = 0;
+		double lucroPrevisto = 0;
 		for (int n = 0; n < 5; n++) {
 			if (this.fazendas.getFazendas()[n] != null) {
 				while (i < 10000) {
 					aux = this.fazendas.getFazendas()[n].getFuncionario().getCeleiro().getRepositorio().getAnimais()[i];
 					if(aux != null) {
-						custosPrevistos += aux.getRacaoMensal() * qtdMes;
+						lucroPrevisto += aux.getPrecoVenda();
 					}
 					i++;
 				}
 			}
 		}
-		return custosPrevistos;
+		return lucroPrevisto;
 	}
-
-	public double consultarCustosPrevistosF(int id, int qtdMes) {
+	
+	public double consultarLucroPrevistoF(int id) {
 		Animal aux = null;
 		int i = 0;
-		double custosPrevistos = 0;
-		while(i < 10000) {
-			aux = this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().getRepositorio().getAnimais()[i];
-			if (aux != null) {
-				custosPrevistos += aux.getRacaoMensal() * qtdMes;
-			}
-			i++;
-		}
-		return custosPrevistos;
-	}
-
-	public double consultarLucroPrevisto(String tipo, int qtd) {
-		int teste = this.consultarAnimais(tipo);
-		if(qtd <= teste) {
-			Animal aux = null;
-			int i = 0, j = 0;
-			double lucroPrevisto = 0;
-			for (int n = 0; n < 5; n++) {
-				if (this.fazendas.getFazendas()[n] != null) {
-					while (i < 10000) {
-						aux = this.fazendas.getFazendas()[n].getFuncionario().getCeleiro().getRepositorio().getAnimais()[i];
-						if(aux != null) {
-							if(aux.getNome().equals(tipo) && j < qtd) {
-								lucroPrevisto += aux.getPrecoVenda();
-								j++;
-							}
-						}
-						i++;
-					}
+		double lucroPrevisto = 0;
+		if (this.fazendas.consultaFazenda(id) != null) {
+			while (i < 10000) {
+				aux = this.fazendas.consultaFazenda(id).getFuncionario().getCeleiro().getRepositorio().getAnimais()[i];
+				if(aux != null) {
+					lucroPrevisto += aux.getPrecoVenda();
 				}
+				i++;
 			}
-			return lucroPrevisto;
 		}
-		return -1;
+		return lucroPrevisto;
 	}
 
 	public String getNome() {
